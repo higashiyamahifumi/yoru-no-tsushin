@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>夜の通信</title>
   <meta name="description" content="夜の通信 - 4/4(土) Koenji Fourth Floor II" />
-
   <style>
     :root { color-scheme: dark light; }
     body{
@@ -17,25 +16,26 @@
     a{ color: inherit; }
     .wrap{ max-width: 900px; margin: 0 auto; padding: 28px 18px 80px; }
 
-    /* top bar */
     .topbar{
       display:flex;
       justify-content:flex-end;
       gap:10px;
       padding: 10px 0 18px;
     }
-    .lang-btn{
-      appearance:none;
-      background:transparent;
+    .lang-link{
+      display:inline-block;
+      padding:8px 12px;
       border:1px solid rgba(127,127,127,.35);
       border-radius:999px;
-      padding:8px 12px;
-      font: inherit;
+      text-decoration:none;
       letter-spacing:.06em;
-      cursor:pointer;
+      opacity:.85;
     }
-    .lang-btn[aria-pressed="true"]{ border-color: currentColor; }
-    .lang-btn:hover{ opacity:.85; }
+    .lang-link.active{
+      border-color: currentColor;
+      opacity:1;
+    }
+    .lang-link:hover{ opacity:.9; }
 
     header{ padding: 10px 0 26px; border-bottom: 1px solid rgba(127,127,127,.25); }
     h1{ font-size: 34px; margin:0 0 10px; letter-spacing:.06em; }
@@ -53,7 +53,6 @@
     @media (min-width: 760px){
       h1{ font-size: 40px; }
     }
-
     .btn{
       display:inline-block;
       margin-top:18px;
@@ -65,88 +64,47 @@
     }
     .btn:hover{ opacity:.82; }
     .small{ font-size: 13px; }
-
-    /* ✅ フェイルセーフ：デフォルトは日本語を表示 */
-    [data-lang="en"]{ display:none; }
-
-    /* JSが動いて html[data-lang="en"] が付いたら英語表示に切替 */
-    html[data-lang="en"] [data-lang="ja"]{ display:none; }
-    html[data-lang="en"] [data-lang="en"]{ display:block; }
-
-    /* JSが動いて html[data-lang="ja"] が付いても（なくても）日本語は表示される */
-    html[data-lang="ja"] [data-lang="ja"]{ display:block; }
-    html[data-lang="ja"] [data-lang="en"]{ display:none; }
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
-    <div class="topbar" aria-label="Language switch">
-      <button class="lang-btn" id="btn-ja" type="button" aria-pressed="true">日本語</button>
-      <button class="lang-btn" id="btn-en" type="button" aria-pressed="false">English</button>
+    <div class="topbar" aria-label="Language">
+      <a class="lang-link active" href="./index.html" aria-current="page">日本語</a>
+      <a class="lang-link" href="./en.html">English</a>
     </div>
 
     <header>
-      <div data-lang="ja">
-        <h1>夜の通信</h1>
-        <p class="sub">2026.04.04 (Sat) / Koenji Fourth Floor II</p>
-      </div>
-      <div data-lang="en">
-        <h1>Yoru no Tsushin</h1>
-        <p class="sub">Sat, Apr 4, 2026 / Koenji Fourth Floor II</p>
-      </div>
+      <h1>夜の通信</h1>
+      <p class="sub">2026.04.04 (Sat) / Koenji Fourth Floor II</p>
     </header>
 
     <section>
       <h2>TIME TABLE</h2>
       <div class="card">
-        <div data-lang="ja">
-          <div><span class="mono">17:00</span> — Exhibition + DJ / Bar open</div>
-          <div><span class="mono">19:00</span> — Live Performance</div>
-        </div>
-        <div data-lang="en">
-          <div><span class="mono">17:00</span> — Exhibition + DJ / Bar open</div>
-          <div><span class="mono">19:00</span> — Live Performance</div>
-        </div>
+        <div><span class="mono">17:00</span> — Exhibition + DJ / Bar open</div>
+        <div><span class="mono">19:00</span> — Live Performance</div>
       </div>
     </section>
 
     <section>
       <h2>TICKET</h2>
       <div class="card">
-        <div data-lang="ja">
-          <div>U-22：1,500円</div>
-          <div>前売：2,000円／当日：2,500円</div>
-          <div>＋1ドリンク（別途）</div>
-        </div>
-        <div data-lang="en">
-          <div>U-22: ¥1,500</div>
-          <div>ADV: ¥2,000 / DOOR: ¥2,500</div>
-          <div>+ 1 Drink (separate)</div>
-        </div>
+        <div>U-22：1,500円</div>
+        <div>前売：2,000円／当日：2,500円</div>
+        <div>＋1ドリンク（別途）</div>
       </div>
     </section>
 
     <section>
       <h2>VENUE</h2>
       <div class="card">
-        <div data-lang="ja">
-          <div><strong>Koenji Fourth Floor II</strong></div>
-          <div class="muted small" style="margin-top:8px;">〒166-0003</div>
-          <div>東京都杉並区高円寺南4-6-7 第5日東ビルB1</div>
-          <div style="margin-top:10px;">
-            <a href="https://maps.app.goo.gl/5qVKebVzXAnNLyhq9" target="_blank" rel="noopener">Googleマップを開く</a>
-          </div>
-        </div>
-
-        <div data-lang="en">
-          <div><strong>Koenji Fourth Floor II</strong></div>
-          <div class="muted small" style="margin-top:8px;">166-0003</div>
-          <div>B1, 5th Nitto Bldg, 4-6-7 Koenji-minami, Suginami-ku, Tokyo</div>
-          <div style="margin-top:10px;">
-            <a href="https://maps.app.goo.gl/5qVKebVzXAnNLyhq9" target="_blank" rel="noopener">Open in Google Maps</a>
-          </div>
+        <div><strong>Koenji Fourth Floor II</strong></div>
+        <div class="muted small" style="margin-top:8px;">〒166-0003</div>
+        <div>東京都杉並区高円寺南4-6-7 第5日東ビルB1</div>
+        <div style="margin-top:10px;">
+          <a href="https://maps.app.goo.gl/5qVKebVzXAnNLyhq9" target="_blank" rel="noopener">Googleマップを開く</a>
         </div>
       </div>
     </section>
@@ -154,50 +112,18 @@
     <section style="border-bottom:none;">
       <h2>LINEUP</h2>
       <div class="card muted">
-        <div data-lang="ja">
-          ここに出演者を追加（例：<br>
-          - Artist A<br>
-          - Artist B<br>
-          - DJ C<br>
-          など）
-        </div>
-        <div data-lang="en">
-          Add lineup here (e.g.)<br>
-          - Artist A<br>
-          - Artist B<br>
-          - DJ C<br>
-          etc.
-        </div>
+        ここに出演者を追加（例：<br>
+        - Artist A<br>
+        - Artist B<br>
+        - DJ C<br>
+        など）
       </div>
 
       <a class="btn" href="https://forms.gle/5CpELw5eLm4boTpc7" target="_blank" rel="noopener">
-        <span data-lang="ja">予約する</span>
-        <span data-lang="en">Reserve</span>
+        予約する
       </a>
     </section>
 
   </div>
-
-  <script>
-    (function(){
-      const btnJa = document.getElementById('btn-ja');
-      const btnEn = document.getElementById('btn-en');
-
-      function setLang(lang){
-        document.documentElement.setAttribute('data-lang', lang);
-        document.documentElement.lang = (lang === 'en') ? 'en' : 'ja';
-        btnJa.setAttribute('aria-pressed', lang === 'ja');
-        btnEn.setAttribute('aria-pressed', lang === 'en');
-        try { localStorage.setItem('ynt_lang', lang); } catch(e){}
-      }
-
-      let saved = null;
-      try { saved = localStorage.getItem('ynt_lang'); } catch(e){}
-      setLang(saved === 'en' ? 'en' : 'ja');
-
-      btnJa.addEventListener('click', () => setLang('ja'));
-      btnEn.addEventListener('click', () => setLang('en'));
-    })();
-  </script>
 </body>
 </html>
