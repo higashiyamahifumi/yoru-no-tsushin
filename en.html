@@ -7,18 +7,65 @@
   <meta name="description" content="Yoru no Tsushin - Sat, Apr 4, 2026 / Koenji Fourth Floor II" />
 
   <style>
-    :root { color-scheme: dark; }
+    :root{
+      color-scheme: dark;
+      --bg: #000000;
+      --fg: #ffffff;
+      --blob: #0A27FF;
+      --line1: rgba(255,255,255,.18);
+      --line2: rgba(255,255,255,.12);
+    }
+
     body{
       margin:0;
       font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       line-height:1.7;
       letter-spacing:.01em;
-      background:#000;
-      color:#fff;
+      background: var(--bg);
+      color: var(--fg);
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
     }
     a{ color: inherit; }
+
+    .bg{
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .bg::before{
+      content:"";
+      position:absolute;
+      inset:-10%;
+      background-repeat:no-repeat;
+      background-position: 55% 45%;
+      background-size: min(1050px, 130vmin) auto;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1600'>\
+<path fill='%230A27FF' d='M791 85c144 46 300 129 354 273 54 144 6 311-60 441-66 130-150 225-161 352-11 127 50 286-25 377-75 91-285 114-442 67-157-47-262-164-339-303-77-139-126-300-86-443 40-143 170-267 189-391 19-124-74-248-47-365 27-117 173-227 317-257 144-30 286 20 300 249z'/>\
+</svg>");
+      transform: rotate(-10deg);
+    }
+    .bg::after{
+      content:"";
+      position:absolute;
+      width: min(420px, 55vmin);
+      height: min(260px, 35vmin);
+      right: 6vw;
+      top: 10vh;
+      background-repeat:no-repeat;
+      background-size:contain;
+      background-position:center;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'>\
+<path fill='%230A27FF' d='M88 236c28-76 152-124 274-165 122-41 241-75 310-30 69 45 89 168 70 258-19 90-76 148-152 168-76 20-171 1-270-21-99-22-202-47-232-115-30-68 13-178 0-95z'/>\
+</svg>");
+      transform: rotate(12deg);
+    }
+
     .wrap{ max-width: 900px; margin: 0 auto; padding: 26px 18px 80px; }
 
     .headrow{
@@ -27,7 +74,7 @@
       justify-content:space-between;
       gap:16px;
       padding: 8px 0 18px;
-      border-bottom: 1px solid rgba(255,255,255,.18);
+      border-bottom: 1px solid var(--line1);
     }
     h1{
       margin:0;
@@ -41,21 +88,18 @@
       gap:10px;
       align-items:baseline;
       font-size: 11px;
-      letter-spacing:.12em;
+      letter-spacing:.14em;
       font-weight:600;
       white-space:nowrap;
       opacity:.9;
     }
-    .lang a{
-      text-decoration:none;
-      opacity:.7;
-    }
+    .lang a{ text-decoration:none; opacity:.7; }
     .lang a.active{ opacity:1; }
     .lang a:hover{ opacity:.95; }
 
     .sub{
       margin:14px 0 0;
-      opacity:.85;
+      opacity:.88;
       font-weight:500;
       font-size:13px;
       letter-spacing:.06em;
@@ -63,14 +107,14 @@
 
     section{
       padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,.12);
+      border-bottom: 1px solid var(--line2);
     }
     h2{
       margin: 0 0 10px;
       font-size: 12px;
       letter-spacing:.16em;
       font-weight:600;
-      opacity:.9;
+      opacity:.92;
     }
     .lines{ font-weight:500; }
     .lines div{ margin: 2px 0; }
@@ -82,12 +126,13 @@
       display:inline-block;
       margin-top:18px;
       padding:12px 16px;
-      border:1px solid rgba(255,255,255,.7);
+      border:1px solid rgba(255,255,255,.75);
       border-radius:999px;
       text-decoration:none;
       letter-spacing:.14em;
       font-weight:600;
       font-size:12px;
+      background: transparent;
     }
     .btn:hover{ opacity:.9; }
 
@@ -105,14 +150,14 @@
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="bg" aria-hidden="true"></div>
 
+  <div class="wrap">
     <header class="headrow">
       <div>
         <h1>Yoru no Tsushin</h1>
         <p class="sub">Sat, Apr 4, 2026 / Koenji Fourth Floor II</p>
       </div>
-
       <nav class="lang" aria-label="Language">
         <a href="./index.html">JP</a>
         <a class="active" href="./en.html" aria-current="page">EN</a>
@@ -160,7 +205,6 @@
         Reserve
       </a>
     </section>
-
   </div>
 </body>
 </html>
