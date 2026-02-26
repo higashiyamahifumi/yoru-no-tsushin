@@ -17,6 +17,10 @@
 
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
+
+      /* 背景の濃さ（ここだけで調整できる） */
+      --bgOpacity: .12;
+      --bgBlur: 1.2px;
     }
 
     body{
@@ -31,6 +35,50 @@
     }
     a{ color:inherit; }
 
+    /* ===== subtle UI background layer ===== */
+    .bg{
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .bg::before{
+      content:"";
+      position:absolute;
+      inset:-5%;
+      background:
+        url("./assets/bg1.webp") 12% 22% / 900px auto no-repeat,
+        url("./assets/bg2.webp") 78% 28% / 820px auto no-repeat,
+        url("./assets/bg3.webp") 62% 78% / 1100px auto no-repeat,
+        url("./assets/bg4.webp") 14% 82% / 520px auto no-repeat;
+
+      opacity: var(--bgOpacity);
+      filter: grayscale(1) blur(var(--bgBlur)) contrast(1.05);
+      mix-blend-mode: screen;
+    }
+    /* 読みやすさ用の薄い暗幕 */
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(ellipse at 45% 18%, rgba(0,0,0,0) 0%, rgba(0,0,0,.78) 70%),
+        radial-gradient(ellipse at 65% 75%, rgba(0,0,0,0) 0%, rgba(0,0,0,.72) 70%);
+      pointer-events:none;
+    }
+    /* スマホでは背景を軽く（任意） */
+    @media (max-width: 640px){
+      .bg::before{
+        background:
+          url("./assets/bg3.webp") 55% 70% / 980px auto no-repeat,
+          url("./assets/bg4.webp") 12% 82% / 460px auto no-repeat;
+        opacity: .10;
+      }
+    }
+
+    /* ===== Layout ===== */
     .wrap{ max-width: 900px; margin: 0 auto; padding: 26px 18px 80px; }
 
     .headrow{
@@ -86,7 +134,6 @@
 
     .muted{ opacity:.78; }
     .small{ font-size:13px; }
-
     .lineup{ font-weight:600; opacity:1; letter-spacing:.04em; }
 
     /* Yellow reserve button */
@@ -127,6 +174,8 @@
 </head>
 
 <body>
+  <div class="bg" aria-hidden="true"></div>
+
   <div class="wrap">
     <header class="headrow">
       <div>
@@ -164,7 +213,6 @@
         <div>＋1ドリンク（別途）</div>
       </div>
 
-      <!-- ✅ reserve button under ticket -->
       <a class="btn" href="https://forms.gle/5CpELw5eLm4boTpc7" target="_blank" rel="noopener">
         予約する
       </a>
@@ -181,7 +229,6 @@
         </div>
       </div>
     </section>
-
   </div>
 </body>
 </html>
