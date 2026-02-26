@@ -12,15 +12,13 @@
       --bg:#000;
       --fg:#fff;
 
+      /* Button */
       --accent:#FFD400;
       --accentText:#000;
 
+      /* Lines */
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
-
-      /* 背景の濃さ（ここだけで調整できる） */
-      --bgOpacity: .12;
-      --bgBlur: 1.2px;
     }
 
     body{
@@ -35,7 +33,7 @@
     }
     a{ color:inherit; }
 
-    /* ===== subtle UI background layer ===== */
+    /* ===== subtle UI background ===== */
     .bg{
       position: fixed;
       inset: 0;
@@ -44,42 +42,59 @@
       background: var(--bg);
       overflow: hidden;
     }
+
+    /* 4枚を1画面内に散らして“うっっすら” */
     .bg::before{
       content:"";
       position:absolute;
-      inset:-5%;
+      inset:0;
       background:
-        url("./assets/bg1.webp") 12% 22% / 900px auto no-repeat,
-        url("./assets/bg2.webp") 78% 28% / 820px auto no-repeat,
-        url("./assets/bg3.webp") 62% 78% / 1100px auto no-repeat,
-        url("./assets/bg4.webp") 14% 82% / 520px auto no-repeat;
+        url("./assets/bg1.webp") 8% 14% / 520px auto no-repeat,
+        url("./assets/bg2.webp") 86% 18% / 460px auto no-repeat,
+        url("./assets/bg3.webp") 78% 82% / 620px auto no-repeat,
+        url("./assets/bg4.webp") 12% 82% / 340px auto no-repeat;
 
-      opacity: var(--bgOpacity);
-      filter: grayscale(1) blur(var(--bgBlur)) contrast(1.05);
+      opacity: .18; /* ← もっと見せたいなら .22 くらいまで */
+      filter: grayscale(1) blur(.6px) contrast(1.12);
       mix-blend-mode: screen;
     }
-    /* 読みやすさ用の薄い暗幕 */
+
+    /* 暗幕（弱め） */
     .bg::after{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(ellipse at 45% 18%, rgba(0,0,0,0) 0%, rgba(0,0,0,.78) 70%),
-        radial-gradient(ellipse at 65% 75%, rgba(0,0,0,0) 0%, rgba(0,0,0,.72) 70%);
+        radial-gradient(ellipse at 50% 18%, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 72%),
+        radial-gradient(ellipse at 50% 82%, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 72%);
       pointer-events:none;
     }
-    /* スマホでは背景を軽く（任意） */
+
+    /* Mobile: もっと小さく・全部見えるように */
     @media (max-width: 640px){
       .bg::before{
         background:
-          url("./assets/bg3.webp") 55% 70% / 980px auto no-repeat,
-          url("./assets/bg4.webp") 12% 82% / 460px auto no-repeat;
-        opacity: .10;
+          url("./assets/bg1.webp") 6% 10% / 360px auto no-repeat,
+          url("./assets/bg2.webp") 92% 12% / 320px auto no-repeat,
+          url("./assets/bg3.webp") 80% 86% / 420px auto no-repeat,
+          url("./assets/bg4.webp") 10% 86% / 260px auto no-repeat;
+        opacity: .16;
+        filter: grayscale(1) blur(.7px) contrast(1.10);
+      }
+      .bg::after{
+        background:
+          radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,.62) 72%);
       }
     }
 
     /* ===== Layout ===== */
-    .wrap{ max-width: 900px; margin: 0 auto; padding: 26px 18px 80px; }
+    .wrap{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 26px 18px 80px;
+      position: relative;
+      z-index: 0;
+    }
 
     .headrow{
       display:flex;
@@ -142,7 +157,6 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-
       margin-top:14px;
       padding:12px 16px;
 
