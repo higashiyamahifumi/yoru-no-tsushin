@@ -6,7 +6,6 @@
   <title>夜の通信</title>
   <meta name="description" content="夜の通信 - 2026.04.04 Koenji Fourth Floor II" />
 
-  <!-- Inter (Ableton UIっぽい雰囲気) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,77 +14,73 @@
     :root { color-scheme: dark; }
     body{
       margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
-      line-height:1.75;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Hiragino Sans",
+        "Noto Sans JP", "Yu Gothic", sans-serif;
+      line-height:1.7;
       letter-spacing:.01em;
       background:#000;
       color:#fff;
     }
     a{ color: inherit; }
-    .wrap{ max-width: 900px; margin: 0 auto; padding: 28px 18px 80px; }
+    .wrap{ max-width: 900px; margin: 0 auto; padding: 26px 18px 80px; }
 
-    /* language switch */
-    .topbar{
+    /* header row: title + language */
+    .headrow{
       display:flex;
-      justify-content:flex-end;
-      gap:10px;
-      padding: 10px 0 18px;
-    }
-    .lang-link{
-      display:inline-block;
-      padding:8px 12px;
-      border:1px solid rgba(255,255,255,.28);
-      border-radius:999px;
-      text-decoration:none;
-      letter-spacing:.08em;
-      font-weight:600;
-      font-size:12px;
-      opacity:.85;
-    }
-    .lang-link.active{
-      border-color: rgba(255,255,255,.7);
-      opacity:1;
-    }
-    .lang-link:hover{ opacity:.95; }
-
-    header{
-      padding: 10px 0 26px;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+      padding: 8px 0 18px;
       border-bottom: 1px solid rgba(255,255,255,.18);
     }
     h1{
+      margin:0;
       font-size: 40px;
-      margin:0 0 10px;
       letter-spacing:.08em;
       font-weight:600;
+      line-height:1.1;
     }
+    .lang{
+      display:flex;
+      gap:10px;
+      align-items:baseline;
+      font-size: 11px;
+      letter-spacing:.12em;
+      font-weight:600;
+      opacity:.85;
+      white-space:nowrap;
+    }
+    .lang a{
+      text-decoration:none;
+      opacity:.7;
+    }
+    .lang a.active{ opacity:1; }
+    .lang a:hover{ opacity:.95; }
+
     .sub{
-      margin:0;
-      opacity:.8;
+      margin:14px 0 0;
+      opacity:.85;
       font-weight:500;
+      font-size:14px;
     }
 
     section{
-      padding: 22px 0;
+      padding: 20px 0;
       border-bottom: 1px solid rgba(255,255,255,.12);
     }
     h2{
-      font-size: 12px;
       margin: 0 0 10px;
-      opacity:.9;
+      font-size: 12px;
       letter-spacing:.16em;
       font-weight:600;
+      opacity:.9;
     }
-    .card{
-      padding: 14px 14px;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 16px;
-      font-weight:500;
-      background: rgba(255,255,255,.02);
-    }
+    .lines{ font-weight:500; }
+    .lines div{ margin: 2px 0; }
+
     .muted{ opacity:.78; }
     .small{ font-size: 13px; }
 
-    /* button */
     .btn{
       display:inline-block;
       margin-top:18px;
@@ -99,8 +94,15 @@
     }
     .btn:hover{ opacity:.9; }
 
+    /* lineup stronger white */
+    .lineup{
+      font-weight:600;
+      opacity:1;
+    }
+
     @media (max-width: 420px){
       h1{ font-size: 34px; }
+      .sub{ font-size: 13px; }
     }
   </style>
 </head>
@@ -108,19 +110,21 @@
 <body>
   <div class="wrap">
 
-    <div class="topbar" aria-label="Language">
-      <a class="lang-link active" href="./index.html" aria-current="page">日本語</a>
-      <a class="lang-link" href="./en.html">English</a>
-    </div>
+    <header class="headrow">
+      <div>
+        <h1>夜の通信</h1>
+        <p class="sub">2026.04.04 (Sat) / Koenji Fourth Floor II</p>
+      </div>
 
-    <header>
-      <h1>夜の通信</h1>
-      <p class="sub">2026.04.04 (Sat) / Koenji Fourth Floor II</p>
+      <nav class="lang" aria-label="Language">
+        <a class="active" href="./index.html" aria-current="page">JP</a>
+        <a href="./en.html">EN</a>
+      </nav>
     </header>
 
     <section>
       <h2>TIME TABLE</h2>
-      <div class="card">
+      <div class="lines">
         <div>17:00 — Exhibition + DJ / Bar open</div>
         <div>19:00 — Live Performance</div>
       </div>
@@ -128,7 +132,7 @@
 
     <section>
       <h2>TICKET</h2>
-      <div class="card">
+      <div class="lines">
         <div>U-22：1,500円</div>
         <div>前売：2,000円／当日：2,500円</div>
         <div>＋1ドリンク（別途）</div>
@@ -137,9 +141,9 @@
 
     <section>
       <h2>VENUE</h2>
-      <div class="card">
+      <div class="lines">
         <div><strong>Koenji Fourth Floor II</strong></div>
-        <div class="muted small" style="margin-top:8px;">〒166-0003</div>
+        <div class="muted small" style="margin-top:6px;">〒166-0003</div>
         <div>東京都杉並区高円寺南4-6-7 第5日東ビルB1</div>
         <div style="margin-top:10px;">
           <a href="https://maps.app.goo.gl/5qVKebVzXAnNLyhq9" target="_blank" rel="noopener">Googleマップを開く</a>
@@ -149,10 +153,10 @@
 
     <section style="border-bottom:none;">
       <h2>LINEUP</h2>
-      <div class="card muted">
-        - 中西優<br>
-        - 東山一二三<br>
-        and more
+      <div class="lines lineup">
+        <div>- 中西優</div>
+        <div>- 東山一二三</div>
+        <div>- and more</div>
       </div>
 
       <a class="btn" href="https://forms.gle/5CpELw5eLm4boTpc7" target="_blank" rel="noopener">
