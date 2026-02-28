@@ -159,25 +159,23 @@
       opacity:1;
     }
 
-    /* content area (photo + bio) */
     .artist .content{
-      margin: 10px 0 0 15px; /* triangle分だけインデント */
+      margin: 10px 0 0 15px;
       display:flex;
       gap:12px;
       align-items:flex-start;
     }
 
-    /* photo: small square */
+    /* photo: slightly bigger */
     .artist .avatar{
-      width:64px;
-      height:64px;
+      width:72px;
+      height:72px;
       object-fit:cover;
-      border-radius:0; /* 完全スクエア */
+      border-radius:0;
       opacity:.95;
       flex: 0 0 auto;
     }
 
-    /* bio: slightly smaller + slightly lighter */
     .artist .bio{
       max-width: 70ch;
       opacity: .70;
@@ -189,9 +187,8 @@
     .artist .bio p{ margin: 0 0 7px; }
     .artist .bio p:last-child{ margin-bottom: 0; }
 
-    /* mobile: photo a bit smaller */
     @media (max-width: 420px){
-      .artist .avatar{ width:56px; height:56px; }
+      .artist .avatar{ width:64px; height:64px; }
       .artist .content{ gap:10px; }
     }
   </style>
