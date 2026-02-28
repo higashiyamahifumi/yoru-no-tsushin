@@ -17,6 +17,9 @@
 
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
+
+      --tri: rgba(255,255,255,.72);
+      --name: rgba(255,255,255,.95);
     }
 
     body{
@@ -119,7 +122,7 @@
       .sub{ font-size:12px; }
     }
 
-    /* ===== LINEUP expandable (with photo) ===== */
+    /* ===== LINEUP expandable (photo then bio) ===== */
     .artist{ padding: 6px 0; }
     .artist summary{
       list-style:none;
@@ -129,8 +132,9 @@
       letter-spacing:.04em;
       display:inline-flex;
       align-items:center;
-      gap:8px;
+      gap:10px;
       outline:none;
+      color: var(--name);
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
@@ -140,37 +144,34 @@
       height: 0;
       border-style: solid;
       border-width: 5px 0 5px 7px; /* ▶ */
-      border-color: transparent transparent transparent rgba(255,255,255,.7);
-      opacity:.85;
-      transform: translateY(1px);
-    }
-    .artist:hover summary::before{
+      border-color: transparent transparent transparent var(--tri);
       opacity:1;
-      border-left-color: rgba(255,255,255,.9);
+      transform: translateY(1px);
     }
     .artist[open] summary::before{
       border-width: 7px 5px 0 5px; /* ▼ */
-      border-color: rgba(255,255,255,.85) transparent transparent transparent;
+      border-color: var(--tri) transparent transparent transparent;
       transform: translateY(2px);
-      opacity:1;
     }
 
     .artist .content{
-      margin: 10px 0 0 15px;
+      margin: 12px 0 0 15px;
       display:flex;
-      gap:12px;
+      flex-direction:column;
+      gap:10px;
       align-items:flex-start;
+      max-width: 70ch;
     }
+
     .artist .avatar{
-      width:72px;
-      height:72px;
+      width:144px;
+      height:144px;
       object-fit:cover;
       border-radius:0;
-      opacity:.95;
-      flex: 0 0 auto;
+      opacity:.98;
     }
+
     .artist .bio{
-      max-width: 70ch;
       opacity: .70;
       font-weight: 500;
       font-size: 12px;
@@ -181,8 +182,7 @@
     .artist .bio p:last-child{ margin-bottom: 0; }
 
     @media (max-width: 420px){
-      .artist .avatar{ width:64px; height:64px; }
-      .artist .content{ gap:10px; }
+      .artist .avatar{ width:120px; height:120px; }
     }
   </style>
 </head>
@@ -208,8 +208,8 @@
         <div class="content">
           <img class="avatar" src="./assets/artists/nakanishi.webp" alt="Yu Nakanishi">
           <div class="bio">
-            <p>A saxophonist who has performed on numerous stages, focusing on improvisation to “turn the present moment into sound.”</p>
-            <p>Also active as a composer and commercial music producer, expanding across various media. Recent projects include self-produced performances such as “unison” and “An Apple on the Desk.”</p>
+            <p>A saxophonist who has performed on numerous stages, centering on improvisation to “turn the present moment into sound.”</p>
+            <p>Also active as a composer and commercial music producer, working across various media. Self-produced performance projects include “unison” and “An Apple on the Desk.”</p>
           </div>
         </div>
       </details>
