@@ -81,8 +81,6 @@
       font-weight:600;
       opacity:.92;
     }
-    .lines{ font-weight:500; }
-    .lines div{ margin:2px 0; }
 
     .muted{ opacity:.78; }
     .small{ font-size:13px; }
@@ -122,7 +120,7 @@
       .sub{ font-size:12px; }
     }
 
-    /* ===== LINEUP expandable ===== */
+    /* ===== LINEUP expandable (with photo) ===== */
     .artist{
       padding: 6px 0;
     }
@@ -139,7 +137,7 @@
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
-    /* left triangle (tap me) */
+    /* left triangle */
     .artist summary::before{
       content:"";
       width: 0;
@@ -155,28 +153,47 @@
       border-left-color: rgba(255,255,255,.9);
     }
     .artist[open] summary::before{
-      /* ▼ */
-      border-width: 7px 5px 0 5px;
+      border-width: 7px 5px 0 5px; /* ▼ */
       border-color: rgba(255,255,255,.85) transparent transparent transparent;
       transform: translateY(2px);
       opacity:1;
     }
-    .artist summary:focus-visible::before{
-      border-left-color: rgba(255,255,255,1);
+
+    /* content area (photo + bio) */
+    .artist .content{
+      margin: 10px 0 0 15px; /* triangle分だけインデント */
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    /* photo: small square */
+    .artist .avatar{
+      width:64px;
+      height:64px;
+      object-fit:cover;
+      border-radius:0; /* 完全スクエア */
+      opacity:.95;
+      flex: 0 0 auto;
     }
 
     /* bio: slightly smaller + slightly lighter */
     .artist .bio{
-      margin: 8px 0 0 15px; /* triangle分だけ少しインデント */
       max-width: 70ch;
-      opacity: .70;          /* ←薄め */
+      opacity: .70;
       font-weight: 500;
-      font-size: 12px;       /* ←小さめ */
+      font-size: 12px;
       letter-spacing: .01em;
       line-height: 1.75;
     }
     .artist .bio p{ margin: 0 0 7px; }
     .artist .bio p:last-child{ margin-bottom: 0; }
+
+    /* mobile: photo a bit smaller */
+    @media (max-width: 420px){
+      .artist .avatar{ width:56px; height:56px; }
+      .artist .content{ gap:10px; }
+    }
   </style>
 </head>
 
@@ -198,18 +215,24 @@
 
       <details class="artist">
         <summary>中西優</summary>
-        <div class="bio">
-          <p>サックス奏者として、数多くの舞台に立つ。「今を音にする」ための即興演奏を軸に活動している。</p>
-          <p>作曲家、CM音楽プロデューサーの顔も持ち、様々な媒体に幅を広げる。公演企画では、「unison」、「机の上のりんご」など。</p>
+        <div class="content">
+          <img class="avatar" src="./assets/artists/nakanishi.webp" alt="中西優">
+          <div class="bio">
+            <p>サックス奏者として、数多くの舞台に立つ。「今を音にする」ための即興演奏を軸に活動している。</p>
+            <p>作曲家、CM音楽プロデューサーの顔も持ち、様々な媒体に幅を広げる。公演企画では、「unison」、「机の上のりんご」など。</p>
+          </div>
         </div>
       </details>
 
       <details class="artist">
         <summary>東山一二三</summary>
-        <div class="bio">
-          <p>福島県出身。</p>
-          <p>コンピュータを用いた即興演奏やパフォーマンス、音響作品、サウンドインスタレーションを中心に活動。</p>
-          <p>無機的な手法と有機的な感覚のあわいのなかで、音の引力や気配を探っている。</p>
+        <div class="content">
+          <img class="avatar" src="./assets/artists/higashiyama.webp" alt="東山一二三">
+          <div class="bio">
+            <p>福島県出身。</p>
+            <p>コンピュータを用いた即興演奏やパフォーマンス、音響作品、サウンドインスタレーションを中心に活動。</p>
+            <p>無機的な手法と有機的な感覚のあわいのなかで、音の引力や気配を探っている。</p>
+          </div>
         </div>
       </details>
 
@@ -218,7 +241,7 @@
 
     <section>
       <h2>TIME TABLE</h2>
-      <div class="lines">
+      <div style="font-weight:500;">
         <div>17:00 — Exhibition + DJ / Bar open</div>
         <div>19:00 — Live Performance</div>
       </div>
@@ -226,7 +249,7 @@
 
     <section>
       <h2>TICKET</h2>
-      <div class="lines">
+      <div style="font-weight:500;">
         <div>U-22：1,500円</div>
         <div>前売：2,000円／当日：2,500円</div>
         <div>＋1ドリンク（別途）</div>
@@ -239,7 +262,7 @@
 
     <section style="border-bottom:none;">
       <h2>VENUE</h2>
-      <div class="lines">
+      <div style="font-weight:500;">
         <div><strong>Koenji Fourth Floor II</strong></div>
         <div class="muted small" style="margin-top:6px;">〒166-0003</div>
         <div>東京都杉並区高円寺南4-6-7 第5日東ビルB1</div>
