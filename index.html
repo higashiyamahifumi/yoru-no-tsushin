@@ -134,49 +134,48 @@
       letter-spacing:.04em;
       display:inline-flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
       outline:none;
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
-    /* “tap me” sign */
-    .artist summary::after{
-      content:"+";
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:18px;
-      height:18px;
-      border:1px solid rgba(255,255,255,.35);
-      border-radius:999px;
-      font-size:12px;
-      line-height:1;
+    /* left triangle (tap me) */
+    .artist summary::before{
+      content:"";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 0 5px 7px; /* ▶ */
+      border-color: transparent transparent transparent rgba(255,255,255,.7);
       opacity:.85;
-      transform: translateY(-1px);
+      transform: translateY(1px);
     }
-    .artist:hover summary::after{
+    .artist:hover summary::before{
       opacity:1;
-      border-color: rgba(255,255,255,.55);
+      border-left-color: rgba(255,255,255,.9);
     }
-    .artist[open] summary::after{
-      content:"–";
+    .artist[open] summary::before{
+      /* ▼ */
+      border-width: 7px 5px 0 5px;
+      border-color: rgba(255,255,255,.85) transparent transparent transparent;
+      transform: translateY(2px);
       opacity:1;
-      border-color: rgba(255,255,255,.55);
     }
-    .artist summary:focus-visible::after{
-      outline: 2px solid rgba(255,255,255,.6);
-      outline-offset: 2px;
+    .artist summary:focus-visible::before{
+      border-left-color: rgba(255,255,255,1);
     }
 
+    /* bio: slightly smaller + slightly lighter */
     .artist .bio{
-      margin: 10px 0 0;
-      max-width: 68ch;
-      opacity: .88;
+      margin: 8px 0 0 15px; /* triangle分だけ少しインデント */
+      max-width: 70ch;
+      opacity: .70;          /* ←薄め */
       font-weight: 500;
+      font-size: 12px;       /* ←小さめ */
       letter-spacing: .01em;
       line-height: 1.75;
     }
-    .artist .bio p{ margin: 0 0 8px; }
+    .artist .bio p{ margin: 0 0 7px; }
     .artist .bio p:last-child{ margin-bottom: 0; }
   </style>
 </head>
