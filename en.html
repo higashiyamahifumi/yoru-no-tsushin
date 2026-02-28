@@ -81,13 +81,9 @@
       font-weight:600;
       opacity:.92;
     }
-    .lines{ font-weight:500; }
-    .lines div{ margin:2px 0; }
 
     .muted{ opacity:.78; }
     .small{ font-size:13px; }
-
-    .lineup{ font-weight:600; opacity:1; letter-spacing:.04em; }
 
     .btn{
       display:inline-flex;
@@ -122,6 +118,72 @@
       h1{ font-size:34px; }
       .sub{ font-size:12px; }
     }
+
+    /* ===== LINEUP expandable (with photo) ===== */
+    .artist{ padding: 6px 0; }
+    .artist summary{
+      list-style:none;
+      cursor:pointer;
+      user-select:none;
+      font-weight:600;
+      letter-spacing:.04em;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      outline:none;
+    }
+    .artist summary::-webkit-details-marker{ display:none; }
+
+    .artist summary::before{
+      content:"";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 0 5px 7px; /* ▶ */
+      border-color: transparent transparent transparent rgba(255,255,255,.7);
+      opacity:.85;
+      transform: translateY(1px);
+    }
+    .artist:hover summary::before{
+      opacity:1;
+      border-left-color: rgba(255,255,255,.9);
+    }
+    .artist[open] summary::before{
+      border-width: 7px 5px 0 5px; /* ▼ */
+      border-color: rgba(255,255,255,.85) transparent transparent transparent;
+      transform: translateY(2px);
+      opacity:1;
+    }
+
+    .artist .content{
+      margin: 10px 0 0 15px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .artist .avatar{
+      width:72px;
+      height:72px;
+      object-fit:cover;
+      border-radius:0;
+      opacity:.95;
+      flex: 0 0 auto;
+    }
+    .artist .bio{
+      max-width: 70ch;
+      opacity: .70;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: .01em;
+      line-height: 1.75;
+    }
+    .artist .bio p{ margin: 0 0 7px; }
+    .artist .bio p:last-child{ margin-bottom: 0; }
+
+    @media (max-width: 420px){
+      .artist .avatar{ width:64px; height:64px; }
+      .artist .content{ gap:10px; }
+    }
   </style>
 </head>
 
@@ -140,16 +202,36 @@
 
     <section>
       <h2>LINEUP</h2>
-      <div class="lines lineup">
-        <div>- Yu Nakanishi</div>
-        <div>- Hifumi Higashiyama</div>
-        <div>- and more</div>
-      </div>
+
+      <details class="artist">
+        <summary>Yu Nakanishi</summary>
+        <div class="content">
+          <img class="avatar" src="./assets/artists/nakanishi.webp" alt="Yu Nakanishi">
+          <div class="bio">
+            <p>A saxophonist who has performed on numerous stages, focusing on improvisation to “turn the present moment into sound.”</p>
+            <p>Also active as a composer and commercial music producer, expanding across various media. Recent projects include self-produced performances such as “unison” and “An Apple on the Desk.”</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="artist">
+        <summary>Hifumi Higashiyama</summary>
+        <div class="content">
+          <img class="avatar" src="./assets/artists/higashiyama.webp" alt="Hifumi Higashiyama">
+          <div class="bio">
+            <p>Born in Fukushima, Japan.</p>
+            <p>Works primarily with computer-based improvisation and performance, sound works, and sound installations.</p>
+            <p>Explores the gravitational pull and presence of sound in the space between mechanical methods and organic sensibilities.</p>
+          </div>
+        </div>
+      </details>
+
+      <div class="artist muted">and more</div>
     </section>
 
     <section>
       <h2>TIME TABLE</h2>
-      <div class="lines">
+      <div style="font-weight:500;">
         <div>17:00 — Exhibition + DJ / Bar open</div>
         <div>19:00 — Live Performance</div>
       </div>
@@ -157,13 +239,12 @@
 
     <section>
       <h2>TICKET</h2>
-      <div class="lines">
+      <div style="font-weight:500;">
         <div>U-22: ¥1,500</div>
         <div>ADV: ¥2,000 / DOOR: ¥2,500</div>
         <div>+ 1 Drink (separate)</div>
       </div>
 
-      <!-- ✅ reserve button under ticket -->
       <a class="btn" href="https://forms.gle/5CpELw5eLm4boTpc7" target="_blank" rel="noopener">
         Reserve
       </a>
@@ -171,7 +252,7 @@
 
     <section style="border-bottom:none;">
       <h2>VENUE</h2>
-      <div class="lines">
+      <div style="font-weight:500;">
         <div><strong>Koenji Fourth Floor II</strong></div>
         <div class="muted small" style="margin-top:6px;">166-0003</div>
         <div>B1, 5th Nitto Bldg, 4-6-7 Koenji-minami, Suginami-ku, Tokyo</div>
