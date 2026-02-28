@@ -17,6 +17,10 @@
 
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
+
+      /* triangle + name fixed brightness */
+      --tri: rgba(255,255,255,.72);
+      --name: rgba(255,255,255,.95);
     }
 
     body{
@@ -120,7 +124,7 @@
       .sub{ font-size:12px; }
     }
 
-    /* ===== LINEUP expandable (with photo) ===== */
+    /* ===== LINEUP expandable (photo then bio) ===== */
     .artist{
       padding: 6px 0;
     }
@@ -132,52 +136,50 @@
       letter-spacing:.04em;
       display:inline-flex;
       align-items:center;
-      gap:8px;
+      gap:10px;
       outline:none;
+      color: var(--name);      /* fixed */
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
-    /* left triangle */
+    /* left triangle: fixed brightness (no hover/open change) */
     .artist summary::before{
       content:"";
       width: 0;
       height: 0;
       border-style: solid;
       border-width: 5px 0 5px 7px; /* ▶ */
-      border-color: transparent transparent transparent rgba(255,255,255,.7);
-      opacity:.85;
-      transform: translateY(1px);
-    }
-    .artist:hover summary::before{
+      border-color: transparent transparent transparent var(--tri);
       opacity:1;
-      border-left-color: rgba(255,255,255,.9);
+      transform: translateY(1px);
     }
     .artist[open] summary::before{
       border-width: 7px 5px 0 5px; /* ▼ */
-      border-color: rgba(255,255,255,.85) transparent transparent transparent;
+      border-color: var(--tri) transparent transparent transparent;
       transform: translateY(2px);
-      opacity:1;
     }
 
+    /* content block (vertical) */
     .artist .content{
-      margin: 10px 0 0 15px;
+      margin: 12px 0 0 15px;
       display:flex;
-      gap:12px;
+      flex-direction:column;
+      gap:10px;
       align-items:flex-start;
-    }
-
-    /* photo: slightly bigger */
-    .artist .avatar{
-      width:72px;
-      height:72px;
-      object-fit:cover;
-      border-radius:0;
-      opacity:.95;
-      flex: 0 0 auto;
-    }
-
-    .artist .bio{
       max-width: 70ch;
+    }
+
+    /* photo: about 2x */
+    .artist .avatar{
+      width:144px;
+      height:144px;
+      object-fit:cover;
+      border-radius:0; /* perfect square */
+      opacity:.98;
+    }
+
+    /* bio: slightly smaller + slightly lighter */
+    .artist .bio{
       opacity: .70;
       font-weight: 500;
       font-size: 12px;
@@ -187,9 +189,9 @@
     .artist .bio p{ margin: 0 0 7px; }
     .artist .bio p:last-child{ margin-bottom: 0; }
 
+    /* small screens: reduce photo a bit */
     @media (max-width: 420px){
-      .artist .avatar{ width:64px; height:64px; }
-      .artist .content{ gap:10px; }
+      .artist .avatar{ width:120px; height:120px; }
     }
   </style>
 </head>
