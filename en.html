@@ -122,7 +122,7 @@
       .sub{ font-size:12px; }
     }
 
-    /* ===== LINEUP expandable (photo then bio) ===== */
+    /* ===== LINEUP expandable ===== */
     .artist{ padding: 6px 0; }
     .artist summary{
       list-style:none;
@@ -163,12 +163,22 @@
       max-width: 70ch;
     }
 
-    .artist .avatar{
+    .avatarWrap{
       width:144px;
       height:144px;
-      object-fit:cover;
+      overflow:hidden;
+    }
+    .avatar{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
       border-radius:0;
       opacity:.98;
+      transform-origin:center;
+    }
+    .avatar.scale-nakanishi{
+      transform: scale(1.15);
     }
 
     .artist .bio{
@@ -182,7 +192,8 @@
     .artist .bio p:last-child{ margin-bottom: 0; }
 
     @media (max-width: 420px){
-      .artist .avatar{ width:120px; height:120px; }
+      .avatarWrap{ width:120px; height:120px; }
+      .avatar.scale-nakanishi{ transform: scale(1.12); }
     }
   </style>
 </head>
@@ -206,7 +217,9 @@
       <details class="artist">
         <summary>Yu Nakanishi</summary>
         <div class="content">
-          <img class="avatar" src="./assets/artists/nakanishi.webp" alt="Yu Nakanishi">
+          <div class="avatarWrap">
+            <img class="avatar scale-nakanishi" src="./assets/artists/nakanishi.webp" alt="Yu Nakanishi">
+          </div>
           <div class="bio">
             <p>A saxophonist who has performed on numerous stages, centering on improvisation to “turn the present moment into sound.”</p>
             <p>Also active as a composer and commercial music producer, working across various media. Self-produced performance projects include “unison” and “An Apple on the Desk.”</p>
@@ -217,7 +230,9 @@
       <details class="artist">
         <summary>Hifumi Higashiyama</summary>
         <div class="content">
-          <img class="avatar" src="./assets/artists/higashiyama.webp" alt="Hifumi Higashiyama">
+          <div class="avatarWrap">
+            <img class="avatar" src="./assets/artists/higashiyama.webp" alt="Hifumi Higashiyama">
+          </div>
           <div class="bio">
             <p>Born in Fukushima, Japan.</p>
             <p>Works primarily with computer-based improvisation and performance, sound works, and sound installations.</p>
