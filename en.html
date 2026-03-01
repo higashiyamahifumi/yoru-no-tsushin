@@ -27,7 +27,7 @@
       --indent: calc(var(--triW) + var(--triGap));
 
       --photoW: 144px;
-      --photoW_small: calc(var(--photoW) * .8); /* nakanishi & aoki */
+      --photoW_small: calc(var(--photoW) * .8);
       --photoMaxH: 240px;
 
       --bioOpacity: .70;
@@ -39,7 +39,7 @@
       --groupMarginTop: 14px;
 
       --bgOpacity: .16;
-      --bgPosX: 25%;
+      --bgShiftX: 25vw;
       --bgSize: min(1640px, 184vw);
     }
 
@@ -63,7 +63,7 @@
 
       background-image: url("./assets/bg/20260301_bg.webp");
       background-repeat: no-repeat;
-      background-position: var(--bgPosX) center;
+      background-position: calc(50% - var(--bgShiftX)) center;
       background-size: var(--bgSize);
       opacity: var(--bgOpacity);
       filter: blur(.2px);
@@ -91,7 +91,7 @@
       margin:0;
       font-size:40px;
       letter-spacing:.06em;
-      font-weight:500; /* a bit thinner */
+      font-weight:500; /* thinner */
       line-height:1.1;
     }
     .sub{
@@ -122,7 +122,7 @@
     }
     h2{
       margin:0 0 10px;
-      font-size:14px;       /* bigger */
+      font-size:14px;
       letter-spacing:.14em;
       font-weight:600;
       opacity:.94;
@@ -170,6 +170,7 @@
 
         --bgOpacity: .14;
         --bgSize: min(1320px, 220vw);
+        --bgShiftX: 18vw;
       }
     }
 
@@ -205,7 +206,7 @@
     }
 
     .artist .content{
-      margin: 12px 0 0 calc(var(--triW) + var(--triGap));
+      margin: 12px 0 0 var(--indent);
       display:flex;
       flex-direction:column;
       gap:10px;
