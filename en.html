@@ -27,7 +27,7 @@
       --indent: calc(var(--triW) + var(--triGap));
 
       --photoW: 144px;
-      --photoW_small: calc(var(--photoW) * .8);
+      --photoW_small: calc(var(--photoW) * .8); /* nakanishi & aoki */
       --photoMaxH: 240px;
 
       --bioOpacity: .70;
@@ -37,6 +37,10 @@
       --groupSize: 11px;
       --groupLetter: .14em;
       --groupMarginTop: 14px;
+
+      --bgOpacity: .16;
+      --bgPosX: 25%;
+      --bgSize: min(1640px, 184vw);
     }
 
     body{
@@ -49,9 +53,31 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
     }
+
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+
+      background-image: url("./assets/bg/20260301_bg.webp");
+      background-repeat: no-repeat;
+      background-position: var(--bgPosX) center;
+      background-size: var(--bgSize);
+      opacity: var(--bgOpacity);
+      filter: blur(.2px);
+    }
+
     a{ color:inherit; }
 
-    .wrap{ max-width: 900px; margin: 0 auto; padding: 26px 18px 80px; }
+    .wrap{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 26px 18px 80px;
+      position: relative;
+      z-index: 1;
+    }
 
     .headrow{
       display:flex;
@@ -65,7 +91,7 @@
       margin:0;
       font-size:40px;
       letter-spacing:.06em;
-      font-weight:600;
+      font-weight:500; /* a bit thinner */
       line-height:1.1;
     }
     .sub{
@@ -96,10 +122,10 @@
     }
     h2{
       margin:0 0 10px;
-      font-size:12px;
-      letter-spacing:.16em;
+      font-size:14px;       /* bigger */
+      letter-spacing:.14em;
       font-weight:600;
-      opacity:.92;
+      opacity:.94;
     }
 
     .muted{ opacity:.78; }
@@ -141,6 +167,9 @@
         --photoW: 120px;
         --photoW_small: calc(var(--photoW) * .8);
         --photoMaxH: 210px;
+
+        --bgOpacity: .14;
+        --bgSize: min(1320px, 220vw);
       }
     }
 
@@ -176,7 +205,7 @@
     }
 
     .artist .content{
-      margin: 12px 0 0 var(--indent);
+      margin: 12px 0 0 calc(var(--triW) + var(--triGap));
       display:flex;
       flex-direction:column;
       gap:10px;
