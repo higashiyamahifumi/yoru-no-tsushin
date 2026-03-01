@@ -27,8 +27,8 @@
       --indent: calc(var(--triW) + var(--triGap));
 
       --photoW: 144px;
+      --photoW_nakanishi: calc(var(--photoW) * .8);
       --photoMaxH: 240px;
-      --nakanishiScale: 1.28;
 
       --bioOpacity: .70;
       --bioSize: 12px;
@@ -132,7 +132,11 @@
     @media (max-width:420px){
       h1{ font-size:34px; }
       .sub{ font-size:12px; }
-      :root{ --photoW: 120px; --photoMaxH: 210px; --nakanishiScale: 1.22; }
+      :root{
+        --photoW: 120px;
+        --photoW_nakanishi: calc(var(--photoW) * .8);
+        --photoMaxH: 210px;
+      }
     }
 
     .artist{ padding: 6px 0; }
@@ -179,6 +183,10 @@
       width: var(--photoW);
       height: auto;
     }
+    .avatarWrap.is-nakanishi{
+      width: var(--photoW_nakanishi);
+    }
+
     .avatar{
       width: 100%;
       height: auto;
@@ -188,10 +196,6 @@
       object-position: center;
       border-radius:0;
       opacity:.98;
-      transform-origin: center;
-    }
-    .avatar.scale-nakanishi{
-      transform: scale(var(--nakanishiScale));
     }
 
     .artist .bio{
@@ -225,8 +229,8 @@
       <details class="artist">
         <summary>Yu Nakanishi</summary>
         <div class="content">
-          <div class="avatarWrap">
-            <img class="avatar scale-nakanishi" src="./assets/artists/nakanishi.webp" alt="Yu Nakanishi">
+          <div class="avatarWrap is-nakanishi">
+            <img class="avatar" src="./assets/artists/nakanishi.webp" alt="Yu Nakanishi">
           </div>
           <div class="bio">
             <p>A saxophonist who has performed on numerous stages, centering on improvisation to “turn the present moment into sound.”</p>
