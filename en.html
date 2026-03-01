@@ -18,8 +18,18 @@
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
 
+      /* fixed brightness */
       --tri: rgba(255,255,255,.72);
       --name: rgba(255,255,255,.95);
+
+      /* lineup layout tokens */
+      --triW: 7px;
+      --triGap: 10px;
+      --indent: calc(var(--triW) + var(--triGap));
+
+      /* avatar tokens */
+      --avatar: 144px;
+      --nakanishiScale: 1.50;
     }
 
     body{
@@ -88,6 +98,7 @@
     .muted{ opacity:.78; }
     .small{ font-size:13px; }
 
+    /* Yellow reserve button */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -124,6 +135,7 @@
 
     /* ===== LINEUP expandable ===== */
     .artist{ padding: 6px 0; }
+
     .artist summary{
       list-style:none;
       cursor:pointer;
@@ -132,7 +144,7 @@
       letter-spacing:.04em;
       display:inline-flex;
       align-items:center;
-      gap:10px;
+      gap: var(--triGap);
       outline:none;
       color: var(--name);
     }
@@ -143,7 +155,7 @@
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 5px 0 5px 7px; /* ▶ */
+      border-width: 5px 0 5px var(--triW); /* ▶ */
       border-color: transparent transparent transparent var(--tri);
       opacity:1;
       transform: translateY(1px);
@@ -155,7 +167,7 @@
     }
 
     .artist .content{
-      margin: 12px 0 0 15px;
+      margin: 12px 0 0 var(--indent);
       display:flex;
       flex-direction:column;
       gap:10px;
@@ -164,8 +176,8 @@
     }
 
     .avatarWrap{
-      width:144px;
-      height:144px;
+      width: var(--avatar);
+      height: var(--avatar);
       overflow:hidden;
     }
     .avatar{
@@ -178,7 +190,7 @@
       transform-origin:center;
     }
     .avatar.scale-nakanishi{
-      transform: scale(1.25);
+      transform: scale(var(--nakanishiScale));
     }
 
     .artist .bio{
@@ -192,8 +204,8 @@
     .artist .bio p:last-child{ margin-bottom: 0; }
 
     @media (max-width: 420px){
-      .avatarWrap{ width:120px; height:120px; }
-      .avatar.scale-nakanishi{ transform: scale(1.12); }
+      :root{ --avatar: 120px; }
+      .avatar.scale-nakanishi{ transform: scale(1.20); }
     }
   </style>
 </head>
