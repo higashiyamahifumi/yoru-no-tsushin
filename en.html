@@ -9,6 +9,7 @@
   <style>
     :root{
       color-scheme: dark;
+
       --bg:#000;
       --fg:#fff;
 
@@ -18,18 +19,19 @@
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
 
-      /* fixed brightness */
       --tri: rgba(255,255,255,.72);
       --name: rgba(255,255,255,.95);
 
-      /* lineup layout tokens */
       --triW: 7px;
       --triGap: 10px;
       --indent: calc(var(--triW) + var(--triGap));
 
-      /* avatar tokens */
-      --avatar: 144px;
-      --nakanishiScale: 1.50;
+      --photoW: 144px;
+      --photoMaxH: 240px;
+      --nakanishiScale: 1.28;
+
+      --bioOpacity: .70;
+      --bioSize: 12px;
     }
 
     body{
@@ -98,7 +100,6 @@
     .muted{ opacity:.78; }
     .small{ font-size:13px; }
 
-    /* Yellow reserve button */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -131,11 +132,10 @@
     @media (max-width:420px){
       h1{ font-size:34px; }
       .sub{ font-size:12px; }
+      :root{ --photoW: 120px; --photoMaxH: 210px; --nakanishiScale: 1.22; }
     }
 
-    /* ===== LINEUP expandable ===== */
     .artist{ padding: 6px 0; }
-
     .artist summary{
       list-style:none;
       cursor:pointer;
@@ -155,13 +155,13 @@
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 5px 0 5px var(--triW); /* ▶ */
+      border-width: 5px 0 5px var(--triW);
       border-color: transparent transparent transparent var(--tri);
       opacity:1;
       transform: translateY(1px);
     }
     .artist[open] summary::before{
-      border-width: 7px 5px 0 5px; /* ▼ */
+      border-width: 7px 5px 0 5px;
       border-color: var(--tri) transparent transparent transparent;
       transform: translateY(2px);
     }
@@ -176,37 +176,33 @@
     }
 
     .avatarWrap{
-      width: var(--avatar);
-      height: var(--avatar);
-      overflow:hidden;
+      width: var(--photoW);
+      height: auto;
     }
     .avatar{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      object-position:center;
+      width: 100%;
+      height: auto;
+      max-height: var(--photoMaxH);
+      display:block;
+      object-fit: contain;
+      object-position: center;
       border-radius:0;
       opacity:.98;
-      transform-origin:center;
+      transform-origin: center;
     }
     .avatar.scale-nakanishi{
       transform: scale(var(--nakanishiScale));
     }
 
     .artist .bio{
-      opacity: .70;
+      opacity: var(--bioOpacity);
       font-weight: 500;
-      font-size: 12px;
+      font-size: var(--bioSize);
       letter-spacing: .01em;
       line-height: 1.75;
     }
     .artist .bio p{ margin: 0 0 7px; }
     .artist .bio p:last-child{ margin-bottom: 0; }
-
-    @media (max-width: 420px){
-      :root{ --avatar: 120px; }
-      .avatar.scale-nakanishi{ transform: scale(1.20); }
-    }
   </style>
 </head>
 
