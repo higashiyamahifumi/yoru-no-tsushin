@@ -49,9 +49,33 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
     }
+
+    /* ===== fixed subtle background image ===== */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+
+      background-image: url("./assets/bg/20260301_bg.webp");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: min(820px, 92vw);
+      opacity: .16; /* ←ほんの気持ち濃いめ */
+      filter: blur(.2px);
+    }
+
     a{ color:inherit; }
 
-    .wrap{ max-width: 900px; margin: 0 auto; padding: 26px 18px 80px; }
+    .wrap{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 26px 18px 80px;
+
+      position: relative;
+      z-index: 1; /* bring content above bg */
+    }
 
     .headrow{
       display:flex;
@@ -141,6 +165,10 @@
         --photoW: 120px;
         --photoW_small: calc(var(--photoW) * .8);
         --photoMaxH: 210px;
+      }
+      body::before{
+        background-size: min(680px, 96vw);
+        opacity: .14; /* モバイルは少し薄め */
       }
     }
 
