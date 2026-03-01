@@ -19,21 +19,18 @@
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
 
-      /* fixed brightness */
       --tri: rgba(255,255,255,.72);
       --name: rgba(255,255,255,.95);
 
-      /* lineup layout tokens */
       --triW: 7px;
       --triGap: 10px;
-      --indent: calc(var(--triW) + var(--triGap)); /* aligns photo left edge */
+      --indent: calc(var(--triW) + var(--triGap));
 
       /* photo tokens (non-square) */
-      --photoW: 144px;     /* “size feeling” */
-      --photoMaxH: 240px;  /* prevent super tall images */
-      --nakanishiScale: 1.28; /* gentle scale (no cropping) */
+      --photoW: 144px;
+      --photoW_nakanishi: calc(var(--photoW) * .8); /* ✅ only nakanishi */
+      --photoMaxH: 240px;
 
-      /* bio tokens */
       --bioOpacity: .70;
       --bioSize: 12px;
     }
@@ -104,7 +101,6 @@
     .muted{ opacity:.78; }
     .small{ font-size:13px; }
 
-    /* Yellow reserve button */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -137,12 +133,15 @@
     @media (max-width:420px){
       h1{ font-size:34px; }
       .sub{ font-size:12px; }
-      :root{ --photoW: 120px; --photoMaxH: 210px; --nakanishiScale: 1.22; }
+      :root{
+        --photoW: 120px;
+        --photoW_nakanishi: calc(var(--photoW) * .8);
+        --photoMaxH: 210px;
+      }
     }
 
-    /* ===== LINEUP expandable ===== */
+    /* ===== LINEUP ===== */
     .artist{ padding: 6px 0; }
-
     .artist summary{
       list-style:none;
       cursor:pointer;
@@ -153,29 +152,28 @@
       align-items:center;
       gap: var(--triGap);
       outline:none;
-      color: var(--name); /* fixed */
+      color: var(--name);
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
-    /* left triangle: fixed brightness */
     .artist summary::before{
       content:"";
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 5px 0 5px var(--triW); /* ▶ */
+      border-width: 5px 0 5px var(--triW);
       border-color: transparent transparent transparent var(--tri);
       opacity:1;
       transform: translateY(1px);
     }
     .artist[open] summary::before{
-      border-width: 7px 5px 0 5px; /* ▼ */
+      border-width: 7px 5px 0 5px;
       border-color: var(--tri) transparent transparent transparent;
       transform: translateY(2px);
     }
 
     .artist .content{
-      margin: 12px 0 0 var(--indent); /* ✅ aligns with name start */
+      margin: 12px 0 0 var(--indent);
       display:flex;
       flex-direction:column;
       gap:10px;
@@ -183,11 +181,14 @@
       max-width: 70ch;
     }
 
-    /* non-square photo: width fixed, height auto */
     .avatarWrap{
       width: var(--photoW);
       height: auto;
     }
+    .avatarWrap.is-nakanishi{
+      width: var(--photoW_nakanishi); /* ✅ only nakanishi smaller */
+    }
+
     .avatar{
       width: 100%;
       height: auto;
@@ -197,10 +198,6 @@
       object-position: center;
       border-radius:0;
       opacity:.98;
-      transform-origin: center;
-    }
-    .avatar.scale-nakanishi{
-      transform: scale(var(--nakanishiScale));
     }
 
     .artist .bio{
@@ -234,8 +231,8 @@
       <details class="artist">
         <summary>中西優</summary>
         <div class="content">
-          <div class="avatarWrap">
-            <img class="avatar scale-nakanishi" src="./assets/artists/nakanishi.webp" alt="中西優">
+          <div class="avatarWrap is-nakanishi">
+            <img class="avatar" src="./assets/artists/nakanishi.webp" alt="中西優">
           </div>
           <div class="bio">
             <p>サックス奏者として、数多くの舞台に立つ。「今を音にする」ための即興演奏を軸に活動している。</p>
