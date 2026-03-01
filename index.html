@@ -26,7 +26,6 @@
       --triGap: 10px;
       --indent: calc(var(--triW) + var(--triGap));
 
-      /* photo tokens (non-square) */
       --photoW: 144px;
       --photoW_small: calc(var(--photoW) * .8); /* nakanishi & aoki */
       --photoMaxH: 240px;
@@ -145,7 +144,6 @@
       }
     }
 
-    /* ===== LINEUP ===== */
     .artist{ padding: 6px 0; }
     .artist summary{
       list-style:none;
@@ -191,7 +189,7 @@
       height: auto;
     }
     .avatarWrap.is-small{
-      width: var(--photoW_small); /* ✅ nakanishi & aoki */
+      width: var(--photoW_small);
     }
     .avatar{
       width: 100%;
@@ -214,14 +212,12 @@
     .artist .bio p{ margin: 0 0 7px; }
     .artist .bio p:last-child{ margin-bottom: 0; }
 
-    /* lineup group heading */
     .group{
       margin: var(--groupMarginTop) 0 6px;
       font-size: var(--groupSize);
       letter-spacing: var(--groupLetter);
       font-weight: 600;
       opacity: var(--groupOpacity);
-      text-transform: none;
     }
     .group:first-of-type{ margin-top: 0; }
   </style>
@@ -252,10 +248,19 @@
             <img class="avatar" src="./assets/artists/aoki.webp" alt="青木駿">
           </div>
           <div class="bio">
-            <p>作曲家</p>
+            <p>作曲家・ドラマー</p>
             <p>石川県出身。</p>
             <p>自身の演奏による即興表現、作編曲活動を行う。2018年度・武生国際音楽祭作曲奨学生。</p>
             <p>様々なアーティストと交流する中で、音が持つ可能性を探求している。</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="artist">
+        <summary>青松茉矢</summary>
+        <div class="content">
+          <div class="bio">
+            <p>自称宇宙芸術家。イギリスで美術を学んだ後、現在は東京を拠点に美学の研究・制作を行う。</p>
           </div>
         </div>
       </details>
