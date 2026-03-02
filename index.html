@@ -38,10 +38,14 @@
       --groupLetter: .14em;
       --groupMarginTop: 14px;
 
-      /* background tuning */
-      --bgOpacity: .16;       /* ほんの気持ち濃いめ */
-      --bgShiftX: 25vw;       /* ✅ 左に寄せる量（確実） */
-      --bgSize: min(1640px, 184vw); /* 2倍くらい */
+      /* background */
+      --bgOpacity: .16;
+      --bgShiftX: 25vw;
+      --bgSize: min(1640px, 184vw);
+
+      /* intro */
+      --introSize: 12px;
+      --introOpacity: .78;
     }
 
     body{
@@ -55,7 +59,6 @@
       text-rendering: geometricPrecision;
     }
 
-    /* ===== fixed background image ===== */
     body::before{
       content:"";
       position: fixed;
@@ -65,7 +68,7 @@
 
       background-image: url("./assets/bg/20260301_bg.webp");
       background-repeat: no-repeat;
-      background-position: calc(50% - var(--bgShiftX)) center; /* ✅ left shift */
+      background-position: calc(50% - var(--bgShiftX)) center;
       background-size: var(--bgSize);
       opacity: var(--bgOpacity);
       filter: blur(.2px);
@@ -93,7 +96,7 @@
       margin:0;
       font-size:40px;
       letter-spacing:.06em;
-      font-weight:500; /* ✅ 少し細く */
+      font-weight:500;
       line-height:1.1;
     }
     .sub{
@@ -124,7 +127,7 @@
     }
     h2{
       margin:0 0 10px;
-      font-size:14px;      /* ✅ 見出しちょい大きく */
+      font-size:14px;
       letter-spacing:.14em;
       font-weight:600;
       opacity:.94;
@@ -138,21 +141,16 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-
       margin-top:14px;
       padding:12px 16px;
-
       background: var(--accent);
       color: var(--accentText);
-
       border: 1px solid rgba(0,0,0,.35);
       border-radius:999px;
-
       text-decoration:none;
       letter-spacing:.14em;
       font-weight:700;
       font-size:12px;
-
       box-shadow: 0 6px 22px rgba(255, 212, 0, .22);
     }
     .btn:hover{ opacity:.92; }
@@ -172,8 +170,17 @@
 
         --bgOpacity: .14;
         --bgSize: min(1320px, 220vw);
-        --bgShiftX: 18vw; /* ✅ 小画面は少し控えめ */
+        --bgShiftX: 18vw;
       }
+    }
+
+    /* intro text */
+    .intro{
+      margin: 2px 0 14px;
+      font-size: var(--introSize);
+      opacity: var(--introOpacity);
+      line-height: 1.85;
+      max-width: 72ch;
     }
 
     .artist{ padding: 6px 0; }
@@ -216,13 +223,8 @@
       max-width: 70ch;
     }
 
-    .avatarWrap{
-      width: var(--photoW);
-      height: auto;
-    }
-    .avatarWrap.is-small{
-      width: var(--photoW_small);
-    }
+    .avatarWrap{ width: var(--photoW); height: auto; }
+    .avatarWrap.is-small{ width: var(--photoW_small); }
     .avatar{
       width: 100%;
       height: auto;
@@ -270,6 +272,10 @@
 
     <section>
       <h2>LINEUP</h2>
+
+      <p class="intro">
+        夜の通信は、出演者それぞれの実践を持ち寄り、即興や実験を含むかたちで空間を構成する融合型イベントです。様々なシグナルが交差・応答し、フォーマットを越境する夜を、ぜひ体験しに来てください。
+      </p>
 
       <div class="group">Exhibition</div>
 
