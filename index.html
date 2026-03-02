@@ -40,8 +40,8 @@
 
       /* background */
       --bgOpacity: .16;
-      --bgShiftX: 25vw;
-      --bgSize: min(1640px, 184vw);
+      --bgShiftX: 25vw;                 /* 左に寄せる量 */
+      --bgSize: min(1640px, 184vw);     /* 2倍くらい */
 
       /* intro */
       --introSize: 12px;
@@ -59,6 +59,7 @@
       text-rendering: geometricPrecision;
     }
 
+    /* fixed background image */
     body::before{
       content:"";
       position: fixed;
@@ -90,8 +91,9 @@
       justify-content:space-between;
       gap:16px;
       padding: 8px 0 18px;
-      border-bottom: 1px solid var(--line1);
+      border-bottom: none; /* ✅ 日付の下の線を消す */
     }
+
     h1{
       margin:0;
       font-size:40px;
@@ -125,6 +127,7 @@
       padding:20px 0;
       border-bottom: 1px solid var(--line2);
     }
+
     h2{
       margin:0 0 10px;
       font-size:14px;
@@ -179,7 +182,7 @@
       border-top: 1px solid var(--line2);
       border-bottom: 1px solid var(--line2);
       padding: 16px 0;
-      margin: 18px 0 0;
+      margin: 8px 0 0; /* header下線なくした分、少し詰め */
     }
     .introText{
       margin:0;
@@ -189,11 +192,13 @@
       max-width: 72ch;
     }
 
+    /* lineup */
     .artist{ padding: 6px 0; }
+
     .artist summary{
       list-style:none;
       cursor:pointer;
-      user-select:none;
+      /* ✅ user-select:none を外す（コピペ可能に） */
       font-weight:600;
       letter-spacing:.04em;
       display:inline-flex;
@@ -201,23 +206,24 @@
       gap: var(--triGap);
       outline:none;
       color: var(--name);
+      -webkit-tap-highlight-color: transparent;
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
+    /* triangle (no layout shift): rotate instead of changing size */
     .artist summary::before{
       content:"";
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 5px 0 5px var(--triW);
+      border-width: 5px 0 5px var(--triW); /* ▶ base */
       border-color: transparent transparent transparent var(--tri);
       opacity:1;
-      transform: translateY(1px);
+      transform-origin: 2px 50%;
+      transform: rotate(0deg); /* ▶ */
     }
     .artist[open] summary::before{
-      border-width: 7px 5px 0 5px;
-      border-color: var(--tri) transparent transparent transparent;
-      transform: translateY(2px);
+      transform: rotate(90deg); /* ▼ */
     }
 
     .artist .content{
@@ -276,7 +282,6 @@
       </nav>
     </header>
 
-    <!-- ✅ Intro section ABOVE lineup -->
     <div class="introBlock" aria-label="Intro">
       <p class="introText">
         夜の通信は、出演者それぞれの実践を持ち寄り、即興や実験を含むかたちで空間を構成する融合型イベントです。様々なシグナルが交差・応答し、フォーマットを越境する夜を、ぜひ体験しに来てください。
