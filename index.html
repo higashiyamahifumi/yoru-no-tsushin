@@ -174,9 +174,15 @@
       }
     }
 
-    /* intro text */
-    .intro{
-      margin: 2px 0 14px;
+    /* intro block (with lines) */
+    .introBlock{
+      border-top: 1px solid var(--line2);
+      border-bottom: 1px solid var(--line2);
+      padding: 16px 0;
+      margin: 18px 0 0;
+    }
+    .introText{
+      margin:0;
       font-size: var(--introSize);
       opacity: var(--introOpacity);
       line-height: 1.85;
@@ -270,12 +276,15 @@
       </nav>
     </header>
 
-    <section>
-      <h2>LINEUP</h2>
-
-      <p class="intro">
+    <!-- ✅ Intro section ABOVE lineup -->
+    <div class="introBlock" aria-label="Intro">
+      <p class="introText">
         夜の通信は、出演者それぞれの実践を持ち寄り、即興や実験を含むかたちで空間を構成する融合型イベントです。様々なシグナルが交差・応答し、フォーマットを越境する夜を、ぜひ体験しに来てください。
       </p>
+    </div>
+
+    <section>
+      <h2>LINEUP</h2>
 
       <div class="group">Exhibition</div>
 
