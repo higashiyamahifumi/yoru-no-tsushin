@@ -88,7 +88,7 @@
       justify-content:space-between;
       gap:16px;
       padding: 8px 0 18px;
-      border-bottom: 1px solid var(--line1);
+      border-bottom: none; /* remove the line under date */
     }
     h1{
       margin:0;
@@ -149,7 +149,7 @@
       border-top: 1px solid var(--line2);
       border-bottom: 1px solid var(--line2);
       padding: 16px 0;
-      margin: 18px 0 0;
+      margin: 8px 0 0;
     }
     .introText{
       margin:0;
@@ -166,8 +166,8 @@
       gap:10px;
       margin-top:14px;
       padding:12px 16px;
-      background: var(--accent);
-      color: var(--accentText);
+      background: #FFD400;
+      color: #000;
       border: 1px solid rgba(0,0,0,.35);
       border-radius:999px;
       text-decoration:none;
@@ -181,7 +181,7 @@
     .artist summary{
       list-style:none;
       cursor:pointer;
-      user-select:none;
+      /* selectable */
       font-weight:600;
       letter-spacing:.04em;
       display:inline-flex;
@@ -189,6 +189,7 @@
       gap: var(--triGap);
       outline:none;
       color: var(--name);
+      -webkit-tap-highlight-color: transparent;
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
@@ -200,12 +201,11 @@
       border-width: 5px 0 5px var(--triW);
       border-color: transparent transparent transparent var(--tri);
       opacity:1;
-      transform: translateY(1px);
+      transform-origin: 2px 50%;
+      transform: rotate(0deg);
     }
     .artist[open] summary::before{
-      border-width: 7px 5px 0 5px;
-      border-color: var(--tri) transparent transparent transparent;
-      transform: translateY(2px);
+      transform: rotate(90deg);
     }
 
     .artist .content{
@@ -248,6 +248,9 @@
       opacity: var(--groupOpacity);
     }
     .group:first-of-type{ margin-top: 0; }
+
+    .muted{ opacity:.78; }
+    .small{ font-size:13px; }
   </style>
 </head>
 
@@ -363,9 +366,7 @@
         <div>+ 1 Drink (separate)</div>
       </div>
 
-      <a class="btn" href="https://forms.gle/5CpELw5eLm4boTpc7" target="_blank" rel="noopener">
-        Reserve
-      </a>
+      <a class="btn" href="https://forms.gle/5CpELw5eLm4boTpc7" target="_blank" rel="noopener">Reserve</a>
     </section>
 
     <section style="border-bottom:none;">
