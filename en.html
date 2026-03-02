@@ -41,6 +41,9 @@
       --bgOpacity: .16;
       --bgShiftX: 25vw;
       --bgSize: min(1640px, 184vw);
+
+      --introSize: 12px;
+      --introOpacity: .78;
     }
 
     body{
@@ -91,7 +94,7 @@
       margin:0;
       font-size:40px;
       letter-spacing:.06em;
-      font-weight:500; /* thinner */
+      font-weight:500;
       line-height:1.1;
     }
     .sub{
@@ -128,38 +131,6 @@
       opacity:.94;
     }
 
-    .muted{ opacity:.78; }
-    .small{ font-size:13px; }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-
-      margin-top:14px;
-      padding:12px 16px;
-
-      background: var(--accent);
-      color: var(--accentText);
-
-      border: 1px solid rgba(0,0,0,.35);
-      border-radius:999px;
-
-      text-decoration:none;
-      letter-spacing:.14em;
-      font-weight:700;
-      font-size:12px;
-
-      box-shadow: 0 6px 22px rgba(255, 212, 0, .22);
-    }
-    .btn:hover{ opacity:.92; }
-    .btn:active{ transform: translateY(1px); }
-    .btn:focus-visible{
-      outline: 2px solid rgba(255, 212, 0, .9);
-      outline-offset: 3px;
-    }
-
     @media (max-width:420px){
       h1{ font-size:34px; }
       .sub{ font-size:12px; }
@@ -172,6 +143,38 @@
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
       }
+    }
+
+    .introBlock{
+      border-top: 1px solid var(--line2);
+      border-bottom: 1px solid var(--line2);
+      padding: 16px 0;
+      margin: 18px 0 0;
+    }
+    .introText{
+      margin:0;
+      font-size: var(--introSize);
+      opacity: var(--introOpacity);
+      line-height: 1.85;
+      max-width: 72ch;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-top:14px;
+      padding:12px 16px;
+      background: var(--accent);
+      color: var(--accentText);
+      border: 1px solid rgba(0,0,0,.35);
+      border-radius:999px;
+      text-decoration:none;
+      letter-spacing:.14em;
+      font-weight:700;
+      font-size:12px;
+      box-shadow: 0 6px 22px rgba(255, 212, 0, .22);
     }
 
     .artist{ padding: 6px 0; }
@@ -214,13 +217,8 @@
       max-width: 70ch;
     }
 
-    .avatarWrap{
-      width: var(--photoW);
-      height: auto;
-    }
-    .avatarWrap.is-small{
-      width: var(--photoW_small);
-    }
+    .avatarWrap{ width: var(--photoW); height: auto; }
+    .avatarWrap.is-small{ width: var(--photoW_small); }
     .avatar{
       width: 100%;
       height: auto;
@@ -265,6 +263,12 @@
         <a class="active" href="./en.html" aria-current="page">EN</a>
       </nav>
     </header>
+
+    <div class="introBlock" aria-label="Intro">
+      <p class="introText">
+        Yoru no Tsushin is a hybrid event where each participant brings their own practice to shape the space through improvisation and experimentation. Come experience a night where many signals cross and respond, moving beyond formats.
+      </p>
+    </div>
 
     <section>
       <h2>LINEUP</h2>
