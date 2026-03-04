@@ -59,6 +59,7 @@
       text-rendering: geometricPrecision;
     }
 
+    /* fixed background image */
     body::before{
       content:"";
       position: fixed;
@@ -138,6 +139,7 @@
     .muted{ opacity:.78; }
     .small{ font-size:13px; }
 
+    /* Yellow reserve button */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -181,6 +183,7 @@
       }
     }
 
+    /* intro block */
     .introBlock{
       border-top: 1px solid var(--line2);
       border-bottom: 1px solid var(--line2);
@@ -195,8 +198,8 @@
       max-width: 72ch;
     }
 
+    /* lineup */
     .artist{ padding: 6px 0; }
-
     .artist summary{
       list-style:none;
       cursor:pointer;
@@ -211,6 +214,7 @@
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
+    /* triangle rotates (no shift) */
     .artist summary::before{
       content:"";
       width: 0;
@@ -237,6 +241,7 @@
 
     .avatarWrap{ width: var(--photoW); height: auto; }
     .avatarWrap.is-small{ width: var(--photoW_small); }
+
     .avatar{
       width: 100%;
       height: auto;
@@ -246,6 +251,12 @@
       object-position: center;
       border-radius:0;
       opacity:.98;
+      transform-origin: center;
+    }
+
+    /* ✅ asano only 85% */
+    .avatar.is-asano{
+      transform: scale(.85);
     }
 
     .artist .bio{
@@ -333,12 +344,11 @@
         </div>
       </details>
 
-      <!-- ✅ Asano with photo + bio -->
       <details class="artist">
         <summary>浅野雄大</summary>
         <div class="content">
           <div class="avatarWrap is-small">
-            <img class="avatar" src="./assets/artists/asano.webp" alt="浅野雄大">
+            <img class="avatar is-asano" src="./assets/artists/asano.webp" alt="浅野雄大">
           </div>
           <div class="bio">
             <p>フランス思想をバックグラウンドに美学や芸術に関する研究を行いながら、エッセイ風のテクストを執筆している。</p>
