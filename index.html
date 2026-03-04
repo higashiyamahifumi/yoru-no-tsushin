@@ -27,7 +27,7 @@
       --indent: calc(var(--triW) + var(--triGap));
 
       --photoW: 144px;
-      --photoW_small: calc(var(--photoW) * .8); /* nakanishi & aoki */
+      --photoW_small: calc(var(--photoW) * .8);
       --photoMaxH: 240px;
 
       --bioOpacity: .70;
@@ -38,12 +38,10 @@
       --groupLetter: .14em;
       --groupMarginTop: 14px;
 
-      /* background */
       --bgOpacity: .16;
-      --bgShiftX: 25vw;                 /* 左に寄せる量 */
-      --bgSize: min(1640px, 184vw);     /* 2倍くらい */
+      --bgShiftX: 25vw;
+      --bgSize: min(1640px, 184vw);
 
-      /* intro */
       --introSize: 12px;
       --introOpacity: .78;
     }
@@ -59,7 +57,6 @@
       text-rendering: geometricPrecision;
     }
 
-    /* fixed background image */
     body::before{
       content:"";
       position: fixed;
@@ -177,7 +174,6 @@
       }
     }
 
-    /* intro block (with lines) */
     .introBlock{
       border-top: 1px solid var(--line2);
       border-bottom: 1px solid var(--line2);
@@ -192,7 +188,6 @@
       max-width: 72ch;
     }
 
-    /* lineup */
     .artist{ padding: 6px 0; }
 
     .artist summary{
@@ -209,7 +204,6 @@
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
-    /* triangle (no layout shift): rotate instead of changing size */
     .artist summary::before{
       content:"";
       width: 0;
@@ -375,6 +369,12 @@
             <p>自身にしかできない視覚表現の新たな地平を切り開くことを目指す。その踊りは、言葉ではなく、身体の沈黙と時間の深さによって語られると考える。</p>
           </div>
         </div>
+      </details>
+
+      <!-- ✅ added -->
+      <details class="artist">
+        <summary>nagomi koyama</summary>
+        <div class="content"></div>
       </details>
 
       <div class="group">Contributors</div>
