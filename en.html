@@ -38,12 +38,10 @@
       --groupLetter: .14em;
       --groupMarginTop: 14px;
 
-      /* background */
       --bgOpacity: .16;
       --bgShiftX: 25vw;
       --bgSize: min(1640px, 184vw);
 
-      /* intro */
       --introSize: 12px;
       --introOpacity: .78;
     }
@@ -237,9 +235,14 @@
     .avatarWrap{ width: var(--photoW); height: auto; }
     .avatarWrap.is-small{ width: var(--photoW_small); }
 
-    /* ✅ asano only: wrapper自体を 85% */
+    /* ✅ asano only: wrapperを 85% */
     .avatarWrap.is-asano{
       width: calc(var(--photoW_small) * .85);
+    }
+
+    /* ✅ watanabe only: wrapperを 110% */
+    .avatarWrap.is-watanabe{
+      width: calc(var(--photoW) * 1.10);
     }
 
     .avatar{
@@ -388,7 +391,7 @@
       <details class="artist">
         <summary>Taishi Watanabe</summary>
         <div class="content">
-          <div class="avatarWrap">
+          <div class="avatarWrap is-watanabe">
             <img class="avatar" src="./assets/artists/watanabe.webp" alt="Taishi Watanabe">
           </div>
           <div class="bio">
