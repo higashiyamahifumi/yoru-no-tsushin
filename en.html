@@ -177,7 +177,7 @@
       letter-spacing:.04em;
       display:inline-flex;
       align-items:center;
-      gap: var(--triGap);
+      gap: 10px;
       outline:none;
       color: var(--name);
       -webkit-tap-highlight-color: transparent;
@@ -189,7 +189,7 @@
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 5px 0 5px var(--triW);
+      border-width: 5px 0 5px 7px;
       border-color: transparent transparent transparent var(--tri);
       opacity:1;
       transform-origin: 2px 50%;
@@ -200,7 +200,7 @@
     }
 
     .artist .content{
-      margin: 12px 0 0 var(--indent);
+      margin: 12px 0 0 calc(7px + 10px);
       display:flex;
       flex-direction:column;
       gap:10px;
@@ -266,7 +266,6 @@
 
       <div class="group">DJ</div>
 
-      <!-- ✅ order: iwa.maxpat -> Kou Miyamoto -->
       <details class="artist">
         <summary>iwa.maxpat</summary>
         <div class="content">
@@ -307,9 +306,14 @@
         </div>
       </details>
 
+      <!-- ✅ added -->
+      <details class="artist">
+        <summary>Yudai Asano</summary>
+        <div class="content"></div>
+      </details>
+
       <div class="group">Live Performance</div>
 
-      <!-- ✅ order: Yu -> nagomi -> Hifumi -> Taishi -->
       <details class="artist">
         <summary>Yu Nakanishi</summary>
         <div class="content">
