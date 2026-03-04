@@ -9,39 +9,27 @@
   <style>
     :root{
       color-scheme: dark;
-
-      --bg:#000;
-      --fg:#fff;
-
-      --accent:#FFD400;
-      --accentText:#000;
-
+      --bg:#000; --fg:#fff;
+      --accent:#FFD400; --accentText:#000;
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
-
       --tri: rgba(255,255,255,.72);
       --name: rgba(255,255,255,.95);
-
       --triW: 7px;
       --triGap: 10px;
       --indent: calc(var(--triW) + var(--triGap));
-
       --photoW: 144px;
       --photoW_small: calc(var(--photoW) * .8);
       --photoMaxH: 240px;
-
       --bioOpacity: .70;
       --bioSize: 12px;
-
       --groupOpacity: .78;
       --groupSize: 11px;
       --groupLetter: .14em;
       --groupMarginTop: 14px;
-
       --bgOpacity: .16;
       --bgShiftX: 25vw;
       --bgSize: min(1640px, 184vw);
-
       --introSize: 12px;
       --introOpacity: .78;
     }
@@ -63,7 +51,6 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-
       background-image: url("./assets/bg/20260301_bg.webp");
       background-repeat: no-repeat;
       background-position: calc(50% - var(--bgShiftX)) center;
@@ -153,12 +140,6 @@
       font-size:12px;
       box-shadow: 0 6px 22px rgba(255, 212, 0, .22);
     }
-    .btn:hover{ opacity:.92; }
-    .btn:active{ transform: translateY(1px); }
-    .btn:focus-visible{
-      outline: 2px solid rgba(255, 212, 0, .9);
-      outline-offset: 3px;
-    }
 
     @media (max-width:420px){
       h1{ font-size:34px; }
@@ -167,7 +148,6 @@
         --photoW: 120px;
         --photoW_small: calc(var(--photoW) * .8);
         --photoMaxH: 210px;
-
         --bgOpacity: .14;
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
@@ -286,11 +266,7 @@
 
       <div class="group">DJ</div>
 
-      <details class="artist">
-        <summary>Kou Miyamoto</summary>
-        <div class="content"></div>
-      </details>
-
+      <!-- ✅ order: iwa.maxpat -> Kou Miyamoto -->
       <details class="artist">
         <summary>iwa.maxpat</summary>
         <div class="content">
@@ -298,6 +274,11 @@
             <p>Drifting along the cashew-nut orbit.</p>
           </div>
         </div>
+      </details>
+
+      <details class="artist">
+        <summary>Kou Miyamoto</summary>
+        <div class="content"></div>
       </details>
 
       <div class="group">Exhibition</div>
@@ -328,6 +309,7 @@
 
       <div class="group">Live Performance</div>
 
+      <!-- ✅ order: Yu -> nagomi -> Hifumi -> Taishi -->
       <details class="artist">
         <summary>Yu Nakanishi</summary>
         <div class="content">
@@ -339,6 +321,11 @@
             <p>Also active as a composer and commercial music producer, working across various media. Self-produced performance projects include “unison” and “An Apple on the Desk.”</p>
           </div>
         </div>
+      </details>
+
+      <details class="artist">
+        <summary>nagomi koyama</summary>
+        <div class="content"></div>
       </details>
 
       <details class="artist">
@@ -369,12 +356,6 @@
             <p>Aiming to open new horizons in visual expression that only he can achieve, he considers his dance to speak not through words, but through the body’s silence and the depth of time.</p>
           </div>
         </div>
-      </details>
-
-      <!-- ✅ added -->
-      <details class="artist">
-        <summary>nagomi koyama</summary>
-        <div class="content"></div>
       </details>
 
       <div class="group">Contributors</div>
