@@ -9,39 +9,27 @@
   <style>
     :root{
       color-scheme: dark;
-
-      --bg:#000;
-      --fg:#fff;
-
-      --accent:#FFD400;
-      --accentText:#000;
-
+      --bg:#000; --fg:#fff;
+      --accent:#FFD400; --accentText:#000;
       --line1: rgba(255,255,255,.18);
       --line2: rgba(255,255,255,.12);
-
       --tri: rgba(255,255,255,.72);
       --name: rgba(255,255,255,.95);
-
       --triW: 7px;
       --triGap: 10px;
       --indent: calc(var(--triW) + var(--triGap));
-
       --photoW: 144px;
       --photoW_small: calc(var(--photoW) * .8);
       --photoMaxH: 240px;
-
       --bioOpacity: .70;
       --bioSize: 12px;
-
       --groupOpacity: .78;
       --groupSize: 11px;
       --groupLetter: .14em;
       --groupMarginTop: 14px;
-
       --bgOpacity: .16;
       --bgShiftX: 25vw;
       --bgSize: min(1640px, 184vw);
-
       --introSize: 12px;
       --introOpacity: .78;
     }
@@ -63,7 +51,6 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-
       background-image: url("./assets/bg/20260301_bg.webp");
       background-repeat: no-repeat;
       background-position: calc(50% - var(--bgShiftX)) center;
@@ -167,7 +154,6 @@
         --photoW: 120px;
         --photoW_small: calc(var(--photoW) * .8);
         --photoMaxH: 210px;
-
         --bgOpacity: .14;
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
@@ -286,11 +272,7 @@
 
       <div class="group">DJ</div>
 
-      <details class="artist">
-        <summary>宮本康</summary>
-        <div class="content"></div>
-      </details>
-
+      <!-- ✅ order: iwa.maxpat -> 宮本康 -->
       <details class="artist">
         <summary>iwa.maxpat</summary>
         <div class="content">
@@ -298,6 +280,11 @@
             <p>カシューナッツ軌道をただよう</p>
           </div>
         </div>
+      </details>
+
+      <details class="artist">
+        <summary>宮本康</summary>
+        <div class="content"></div>
       </details>
 
       <div class="group">Exhibition</div>
@@ -328,6 +315,7 @@
 
       <div class="group">Live Performance</div>
 
+      <!-- ✅ order: 中西優 -> nagomi koyama -> 東山一二三 -> 渡辺泰司 -->
       <details class="artist">
         <summary>中西優</summary>
         <div class="content">
@@ -339,6 +327,11 @@
             <p>作曲家、CM音楽プロデューサーの顔も持ち、様々な媒体に幅を広げる。公演企画では、「unison」、「机の上のりんご」など。</p>
           </div>
         </div>
+      </details>
+
+      <details class="artist">
+        <summary>nagomi koyama</summary>
+        <div class="content"></div>
       </details>
 
       <details class="artist">
@@ -369,12 +362,6 @@
             <p>自身にしかできない視覚表現の新たな地平を切り開くことを目指す。その踊りは、言葉ではなく、身体の沈黙と時間の深さによって語られると考える。</p>
           </div>
         </div>
-      </details>
-
-      <!-- ✅ added -->
-      <details class="artist">
-        <summary>nagomi koyama</summary>
-        <div class="content"></div>
       </details>
 
       <div class="group">Contributors</div>
