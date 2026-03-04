@@ -27,7 +27,7 @@
       --indent: calc(var(--triW) + var(--triGap));
 
       --photoW: 144px;
-      --photoW_small: calc(var(--photoW) * .8); /* nakanishi & aoki */
+      --photoW_small: calc(var(--photoW) * .8); /* nakanishi & aoki & asano */
       --photoMaxH: 240px;
 
       --bioOpacity: .70;
@@ -59,7 +59,6 @@
       text-rendering: geometricPrecision;
     }
 
-    /* fixed background image */
     body::before{
       content:"";
       position: fixed;
@@ -182,7 +181,6 @@
       }
     }
 
-    /* intro block (with lines) */
     .introBlock{
       border-top: 1px solid var(--line2);
       border-bottom: 1px solid var(--line2);
@@ -197,7 +195,6 @@
       max-width: 72ch;
     }
 
-    /* lineup */
     .artist{ padding: 6px 0; }
 
     .artist summary{
@@ -214,7 +211,6 @@
     }
     .artist summary::-webkit-details-marker{ display:none; }
 
-    /* triangle (no layout shift): rotate instead of changing size */
     .artist summary::before{
       content:"";
       width: 0;
@@ -337,9 +333,18 @@
         </div>
       </details>
 
+      <!-- ✅ Asano with photo + translated bio -->
       <details class="artist">
         <summary>Yudai Asano</summary>
-        <div class="content"></div>
+        <div class="content">
+          <div class="avatarWrap is-small">
+            <img class="avatar" src="./assets/artists/asano.webp" alt="Yudai Asano">
+          </div>
+          <div class="bio">
+            <p>With French thought as a background, he researches aesthetics and art, while writing essay-like texts.</p>
+            <p>“She maintains the body’s structure and metabolic systems required for biological activity; as an IT worker, her right hand builds an inventory-management system on a computer, while at the same time her left hand builds a system on a tablet for placing characters to handle enemies that keep surging in without end. In every aspect of survival, labor, and play, she is a system—and she makes systems.”</p>
+          </div>
+        </div>
       </details>
 
       <div class="group">Live Performance</div>
