@@ -235,12 +235,9 @@
     .avatarWrap{ width: var(--photoW); height: auto; }
     .avatarWrap.is-small{ width: var(--photoW_small); }
 
-    /* ✅ asano only: wrapperを 85% */
     .avatarWrap.is-asano{
       width: calc(var(--photoW_small) * .85);
     }
-
-    /* ✅ watanabe only: wrapperを 110% */
     .avatarWrap.is-watanabe{
       width: calc(var(--photoW) * 1.10);
     }
@@ -408,7 +405,20 @@
 
       <details class="artist">
         <summary>Masaki Hanawa</summary>
-        <div class="content"></div>
+        <div class="content">
+          <div class="avatarWrap is-small">
+            <img class="avatar" src="./assets/artists/hanawa.webp" alt="Masaki Hanawa">
+          </div>
+          <div class="bio">
+            <p>Sound artist / saxophonist / composer / painter / etc.</p>
+            <p>Centered on alto saxophone with a distinctive tone that emphasizes air noise, he pursues an expression that freely moves between silence, sound, and music, presenting works and performances that merge with time and space both in Japan and internationally.</p>
+            <p>His practice extends beyond music into diverse media such as painting and photography, developing cross-disciplinary creation.</p>
+            <p>In 2023, he made his major debut with the 1st album “Silence,” released via CADENZA (by T-Toc Records).</p>
+            <p>Recent highlights include the acrylic painting solo exhibition “Cafe Paintings” and the sound installation “Cafe Music.”</p>
+            <p>He has also presented Alto Saxophone Solo Exhibitions such as “Progression and Retrogression Based on the Present Moment,” “Noise of the Alto Saxophone and the Sound of Space,” and “Perceptual Boundary Lines.”</p>
+            <p>Additionally, alongside the publication of Christian Soleil’s “Masaki Hanawa, the other name for delicacy: biography,” he performed in France, expanding the scope of his international activities.</p>
+          </div>
+        </div>
       </details>
 
       <div class="artist muted">and more</div>
