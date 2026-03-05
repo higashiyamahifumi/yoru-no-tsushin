@@ -27,7 +27,7 @@
       --indent: calc(var(--triW) + var(--triGap));
 
       --photoW: 144px;
-      --photoW_small: calc(var(--photoW) * .8); /* nakanishi & aoki */
+      --photoW_small: calc(var(--photoW) * .8);
       --photoMaxH: 240px;
 
       --bioOpacity: .70;
@@ -38,12 +38,10 @@
       --groupLetter: .14em;
       --groupMarginTop: 14px;
 
-      /* background */
       --bgOpacity: .16;
       --bgShiftX: 25vw;
       --bgSize: min(1640px, 184vw);
 
-      /* intro */
       --introSize: 12px;
       --introOpacity: .78;
     }
@@ -237,12 +235,9 @@
     .avatarWrap{ width: var(--photoW); height: auto; }
     .avatarWrap.is-small{ width: var(--photoW_small); }
 
-    /* ✅ asano only: wrapperを 85%（余白増えない） */
     .avatarWrap.is-asano{
       width: calc(var(--photoW_small) * .85);
     }
-
-    /* ✅ watanabe only: wrapperを 110%（10%大きく） */
     .avatarWrap.is-watanabe{
       width: calc(var(--photoW) * 1.10);
     }
@@ -410,7 +405,20 @@
 
       <details class="artist">
         <summary>塙正貴</summary>
-        <div class="content"></div>
+        <div class="content">
+          <div class="avatarWrap is-small">
+            <img class="avatar" src="./assets/artists/hanawa.webp" alt="塙正貴">
+          </div>
+          <div class="bio">
+            <p>サウンドアーティスト / サックス奏者 / 作曲家 / 画家 /etc.</p>
+            <p>エアノイズを強調した独自の音色を持つアルトサックスを軸に、無音・音・音楽のあいだを自在に往還する表現を追求し、時間や空間と融合する作品やパフォーマンスを国内外で発表している。</p>
+            <p>活動領域は音楽にとどまらず、絵画や写真など多様なメディアへと拡張し、領域を越えた創作を展開している。</p>
+            <p>2023年、CADENZA(by T-Toc Records)より1stアルバム「Silence」をリリースしメジャーデビュー。</p>
+            <p>近年の主な活動として、アクリル画の個展「カフェの絵」や、サウンドインスタレーション「カフェの音楽」を発表。</p>
+            <p>また、Alto Saxophone Solo Exhibitionとして「現時点を基準とした順行と逆行」「アルトサクソフォンのノイズと空間の音」「認知上の境界線」などを開催。</p>
+            <p>さらに、Christian Soleil 著「Masaki Hanawa, the other name for delicacy: biography」の刊行にあわせ、フランス国内での公演も実施し、国際的な活動の幅を広げている。</p>
+          </div>
+        </div>
       </details>
 
       <div class="artist muted">and more</div>
