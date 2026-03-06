@@ -38,12 +38,18 @@
       --groupLetter: .14em;
       --groupMarginTop: 14px;
 
+      /* background */
       --bgOpacity: .16;
       --bgShiftX: 25vw;
       --bgSize: min(1640px, 184vw);
 
+      /* intro */
       --introSize: 12px;
       --introOpacity: .78;
+
+      /* flyer */
+      --flyerMaxW: 860px; /* 気持ち大きめ */
+      --flyerGapTop: 14px;
     }
 
     body{
@@ -57,6 +63,7 @@
       text-rendering: geometricPrecision;
     }
 
+    /* fixed background image */
     body::before{
       content:"";
       position: fixed;
@@ -87,7 +94,7 @@
       align-items:baseline;
       justify-content:space-between;
       gap:16px;
-      padding: 8px 0 18px;
+      padding: 8px 0 10px;
       border-bottom: none;
     }
 
@@ -119,6 +126,18 @@
     .lang a{ text-decoration:none; opacity:.7; }
     .lang a.active{ opacity:1; }
     .lang a:hover{ opacity:.95; }
+
+    /* flyer under header */
+    .flyer{
+      margin: var(--flyerGapTop) auto 0;
+      max-width: var(--flyerMaxW);
+    }
+    .flyer img{
+      width: 100%;
+      height: auto;
+      display:block;
+      border: 1px solid rgba(255,255,255,.12);
+    }
 
     section{
       padding:20px 0;
@@ -176,14 +195,17 @@
         --bgOpacity: .14;
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
+
+        --flyerMaxW: 100%;
       }
     }
 
+    /* intro block */
     .introBlock{
       border-top: 1px solid var(--line2);
       border-bottom: 1px solid var(--line2);
       padding: 16px 0;
-      margin: 8px 0 0;
+      margin: 16px 0 0;
     }
     .introText{
       margin:0;
@@ -193,7 +215,9 @@
       max-width: 72ch;
     }
 
+    /* lineup expandable */
     .artist{ padding: 6px 0; }
+
     .artist summary{
       list-style:none;
       cursor:pointer;
@@ -235,12 +259,8 @@
     .avatarWrap{ width: var(--photoW); height: auto; }
     .avatarWrap.is-small{ width: var(--photoW_small); }
 
-    .avatarWrap.is-asano{
-      width: calc(var(--photoW_small) * .85);
-    }
-    .avatarWrap.is-watanabe{
-      width: calc(var(--photoW) * 1.10);
-    }
+    .avatarWrap.is-asano{ width: calc(var(--photoW_small) * .85); }
+    .avatarWrap.is-watanabe{ width: calc(var(--photoW) * 1.10); }
 
     .avatar{
       width: 100%;
@@ -286,6 +306,11 @@
         <a href="./en.html">EN</a>
       </nav>
     </header>
+
+    <!-- ✅ flyer under header -->
+    <div class="flyer" aria-label="Flyer">
+      <img src="./assets/flyer/fix.webp" alt="夜の通信 flyer">
+    </div>
 
     <div class="introBlock" aria-label="Intro">
       <p class="introText">
