@@ -282,6 +282,15 @@
       opacity: var(--groupOpacity);
     }
     .group:first-of-type{ margin-top: 0; }
+
+    /* ✅ Profile links (Instagram / Official Web Site) */
+    .bioLink{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      opacity: .85;
+    }
+    .bioLink:hover{ opacity: 1; }
   </style>
 </head>
 
@@ -436,7 +445,14 @@
             <p>Recent highlights include the acrylic painting solo exhibition “Cafe Paintings” and the sound installation “Cafe Music.”</p>
             <p>He has also presented Alto Saxophone Solo Exhibitions such as “Progression and Retrogression Based on the Present Moment,” “Noise of the Alto Saxophone and the Sound of Space,” and “Perceptual Boundary Lines.”</p>
             <p>Additionally, alongside the publication of Christian Soleil’s “Masaki Hanawa, the other name for delicacy: biography,” he performed in France, expanding the scope of his international activities.</p>
-            <p class="muted"><a href="https://masakihanawa.com/index.html" target="_blank" rel="noopener">https://masakihanawa.com/index.html</a></p>
+
+            <!-- ✅ links: official + instagram -->
+            <p>
+              <a class="bioLink" href="https://masakihanawa.com/index.html" target="_blank" rel="noopener">Official Web Site</a>
+            </p>
+            <p>
+              <a class="bioLink" href="https://www.instagram.com/hanamasax?igsh=MW5ua2pwY3ppeWo2eA%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+            </p>
           </div>
         </div>
       </details>
