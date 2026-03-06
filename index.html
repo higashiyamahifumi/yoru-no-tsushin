@@ -47,8 +47,8 @@
       --introSize: 12px;
       --introOpacity: .78;
 
-      /* flyer */
-      --flyerMaxW: 860px; /* 気持ち大きめ */
+      /* flyer: artist photo size + 30% */
+      --flyerW: calc(var(--photoW_small) * 1.3);
       --flyerGapTop: 14px;
     }
 
@@ -63,7 +63,6 @@
       text-rendering: geometricPrecision;
     }
 
-    /* fixed background image */
     body::before{
       content:"";
       position: fixed;
@@ -127,10 +126,10 @@
     .lang a.active{ opacity:1; }
     .lang a:hover{ opacity:.95; }
 
-    /* flyer under header */
+    /* flyer under header (photo-ish size + 30%) */
     .flyer{
-      margin: var(--flyerGapTop) auto 0;
-      max-width: var(--flyerMaxW);
+      margin: var(--flyerGapTop) 0 0;          /* 左寄せ（テキストの流れと揃う） */
+      width: min(var(--flyerW), 100%);         /* スマホでもはみ出さない */
     }
     .flyer img{
       width: 100%;
@@ -196,11 +195,10 @@
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
 
-        --flyerMaxW: 100%;
+        /* flyer also follows new photoW_small automatically */
       }
     }
 
-    /* intro block */
     .introBlock{
       border-top: 1px solid var(--line2);
       border-bottom: 1px solid var(--line2);
@@ -215,7 +213,6 @@
       max-width: 72ch;
     }
 
-    /* lineup expandable */
     .artist{ padding: 6px 0; }
 
     .artist summary{
@@ -307,7 +304,6 @@
       </nav>
     </header>
 
-    <!-- ✅ flyer under header -->
     <div class="flyer" aria-label="Flyer">
       <img src="./assets/flyer/fix.webp" alt="夜の通信 flyer">
     </div>
