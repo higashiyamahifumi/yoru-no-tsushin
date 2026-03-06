@@ -128,8 +128,8 @@
 
     /* flyer under header (photo-ish size + 30%) */
     .flyer{
-      margin: var(--flyerGapTop) 0 0;          /* 左寄せ（テキストの流れと揃う） */
-      width: min(var(--flyerW), 100%);         /* スマホでもはみ出さない */
+      margin: var(--flyerGapTop) 0 0;
+      width: min(var(--flyerW), 100%);
     }
     .flyer img{
       width: 100%;
@@ -194,8 +194,6 @@
         --bgOpacity: .14;
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
-
-        /* flyer also follows new photoW_small automatically */
       }
     }
 
@@ -224,7 +222,7 @@
       align-items:center;
       gap: var(--triGap);
       outline:none;
-      color: var(--name);
+      color: rgba(255,255,255,.95);
       -webkit-tap-highlight-color: transparent;
     }
     .artist summary::-webkit-details-marker{ display:none; }
@@ -288,6 +286,15 @@
       opacity: var(--groupOpacity);
     }
     .group:first-of-type{ margin-top: 0; }
+
+    /* ✅ Profile links (Instagram / Official Web Site) */
+    .bioLink{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      opacity: .85;
+    }
+    .bioLink:hover{ opacity: 1; }
   </style>
 </head>
 
@@ -442,7 +449,14 @@
             <p>近年の主な活動として、アクリル画の個展「カフェの絵」や、サウンドインスタレーション「カフェの音楽」を発表。</p>
             <p>また、Alto Saxophone Solo Exhibitionとして「現時点を基準とした順行と逆行」「アルトサクソフォンのノイズと空間の音」「認知上の境界線」などを開催。</p>
             <p>さらに、Christian Soleil 著「Masaki Hanawa, the other name for delicacy: biography」の刊行にあわせ、フランス国内での公演も実施し、国際的な活動の幅を広げている。</p>
-            <p class="muted"><a href="https://masakihanawa.com/index.html" target="_blank" rel="noopener">https://masakihanawa.com/index.html</a></p>
+
+            <!-- ✅ links: official + instagram -->
+            <p>
+              <a class="bioLink" href="https://masakihanawa.com/index.html" target="_blank" rel="noopener">Official Web Site</a>
+            </p>
+            <p>
+              <a class="bioLink" href="https://www.instagram.com/hanamasax?igsh=MW5ua2pwY3ppeWo2eA%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+            </p>
           </div>
         </div>
       </details>
