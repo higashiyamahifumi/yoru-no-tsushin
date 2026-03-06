@@ -44,6 +44,9 @@
 
       --introSize: 12px;
       --introOpacity: .78;
+
+      --flyerMaxW: 860px;
+      --flyerGapTop: 14px;
     }
 
     body{
@@ -87,7 +90,7 @@
       align-items:baseline;
       justify-content:space-between;
       gap:16px;
-      padding: 8px 0 18px;
+      padding: 8px 0 10px;
       border-bottom: none;
     }
 
@@ -119,6 +122,17 @@
     .lang a{ text-decoration:none; opacity:.7; }
     .lang a.active{ opacity:1; }
     .lang a:hover{ opacity:.95; }
+
+    .flyer{
+      margin: var(--flyerGapTop) auto 0;
+      max-width: var(--flyerMaxW);
+    }
+    .flyer img{
+      width: 100%;
+      height: auto;
+      display:block;
+      border: 1px solid rgba(255,255,255,.12);
+    }
 
     section{
       padding:20px 0;
@@ -176,6 +190,8 @@
         --bgOpacity: .14;
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
+
+        --flyerMaxW: 100%;
       }
     }
 
@@ -183,7 +199,7 @@
       border-top: 1px solid var(--line2);
       border-bottom: 1px solid var(--line2);
       padding: 16px 0;
-      margin: 8px 0 0;
+      margin: 16px 0 0;
     }
     .introText{
       margin:0;
@@ -235,12 +251,8 @@
     .avatarWrap{ width: var(--photoW); height: auto; }
     .avatarWrap.is-small{ width: var(--photoW_small); }
 
-    .avatarWrap.is-asano{
-      width: calc(var(--photoW_small) * .85);
-    }
-    .avatarWrap.is-watanabe{
-      width: calc(var(--photoW) * 1.10);
-    }
+    .avatarWrap.is-asano{ width: calc(var(--photoW_small) * .85); }
+    .avatarWrap.is-watanabe{ width: calc(var(--photoW) * 1.10); }
 
     .avatar{
       width: 100%;
@@ -286,6 +298,11 @@
         <a class="active" href="./en.html" aria-current="page">EN</a>
       </nav>
     </header>
+
+    <!-- ✅ flyer under header -->
+    <div class="flyer" aria-label="Flyer">
+      <img src="./assets/flyer/fix.webp" alt="Yoru no Tsushin flyer">
+    </div>
 
     <div class="introBlock" aria-label="Intro">
       <p class="introText">
