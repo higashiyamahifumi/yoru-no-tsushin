@@ -45,7 +45,7 @@
       --introSize: 12px;
       --introOpacity: .78;
 
-      /* flyer: artist photo size + 30% */
+      /* flyer */
       --flyerW: calc(var(--photoW_small) * 1.6);
       --flyerGapTop: 14px;
     }
@@ -283,7 +283,6 @@
     }
     .group:first-of-type{ margin-top: 0; }
 
-    /* ✅ Profile links (Instagram / Official Web Site) */
     .bioLink{
       text-decoration: underline;
       text-underline-offset: 3px;
@@ -360,6 +359,10 @@
       <details class="artist">
         <summary>Maya Aomatsu</summary>
         <div class="content">
+          <!-- ✅ added photo -->
+          <div class="avatarWrap is-small">
+            <img class="avatar" src="./assets/artists/aomatsu.webp" alt="Maya Aomatsu">
+          </div>
           <div class="bio">
             <p>A self-proclaimed cosmic artist. After studying fine art in the UK, she is now based in Tokyo, researching and creating works grounded in aesthetics.</p>
           </div>
@@ -446,7 +449,6 @@
             <p>He has also presented Alto Saxophone Solo Exhibitions such as “Progression and Retrogression Based on the Present Moment,” “Noise of the Alto Saxophone and the Sound of Space,” and “Perceptual Boundary Lines.”</p>
             <p>Additionally, alongside the publication of Christian Soleil’s “Masaki Hanawa, the other name for delicacy: biography,” he performed in France, expanding the scope of his international activities.</p>
 
-            <!-- ✅ links: official + instagram -->
             <p>
               <a class="bioLink" href="https://masakihanawa.com/index.html" target="_blank" rel="noopener">Official Web Site</a>
             </p>
