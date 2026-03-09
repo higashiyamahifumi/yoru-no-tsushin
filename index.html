@@ -51,8 +51,8 @@
       --flyerW: calc(var(--photoW_small) * 1.6);
       --flyerGapTop: 14px;
 
-      /* merch image (same feel as photos) */
-      --merchW: var(--photoW);
+      /* merch image */
+      --merchW: calc(var(--photoW) * 1.25); /* ✅ sticker bigger */
       --merchGapTop: 10px;
     }
 
@@ -193,8 +193,9 @@
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
 
-        --merchW: var(--photoW);
+        --merchW: calc(var(--photoW) * 1.25);
       }
+      .merchNote{ font-size: 10.5px; }
     }
 
     .introBlock{
@@ -310,6 +311,11 @@
       margin-top: 10px;
       font-weight: 600;
       letter-spacing: .06em;
+    }
+    .merchNote{
+      font-size: 11px;   /* ✅ smaller note */
+      line-height: 1.6;
+      opacity: .72;
     }
   </style>
 </head>
@@ -526,7 +532,7 @@
       <div style="font-weight:500; margin-top:12px;">
         <div>夜の通信ステッカー</div>
         <div class="priceLine">￥500</div>
-        <div class="muted" style="margin-top:6px;">その他 会場内物販あり</div>
+        <div class="merchNote" style="margin-top:6px;">その他 会場内物販あり</div>
       </div>
     </section>
 
