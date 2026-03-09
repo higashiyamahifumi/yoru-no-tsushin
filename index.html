@@ -50,6 +50,10 @@
       /* flyer */
       --flyerW: calc(var(--photoW_small) * 1.6);
       --flyerGapTop: 14px;
+
+      /* merch image (same feel as photos) */
+      --merchW: var(--photoW);
+      --merchGapTop: 10px;
     }
 
     body{
@@ -188,6 +192,8 @@
         --bgOpacity: .14;
         --bgSize: min(1320px, 220vw);
         --bgShiftX: 18vw;
+
+        --merchW: var(--photoW);
       }
     }
 
@@ -288,6 +294,23 @@
       opacity: .85;
     }
     .bioLink:hover{ opacity: 1; }
+
+    /* ✅ merch block */
+    .merchWrap{
+      width: min(var(--merchW), 100%);
+      margin-top: var(--merchGapTop);
+    }
+    .merchImg{
+      width: 100%;
+      height: auto;
+      display:block;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .priceLine{
+      margin-top: 10px;
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
   </style>
 </head>
 
@@ -357,7 +380,6 @@
       <details class="artist">
         <summary>青松茉矢</summary>
         <div class="content">
-          <!-- ✅ added photo -->
           <div class="avatarWrap is-small">
             <img class="avatar" src="./assets/artists/aomatsu.webp" alt="青松茉矢">
           </div>
@@ -481,7 +503,7 @@
       </a>
     </section>
 
-    <section style="border-bottom:none;">
+    <section>
       <h2>VENUE</h2>
       <div style="font-weight:500;">
         <div><strong>Koenji Fourth Floor II</strong></div>
@@ -490,6 +512,21 @@
         <div style="margin-top:10px;">
           <a href="https://maps.app.goo.gl/5qVKebVzXAnNLyhq9" target="_blank" rel="noopener">Googleマップを開く</a>
         </div>
+      </div>
+    </section>
+
+    <!-- ✅ MERCH (物販) -->
+    <section style="border-bottom:none;">
+      <h2>MERCH</h2>
+
+      <div class="merchWrap" aria-label="Merch">
+        <img class="merchImg" src="./assets/merch/sticker.webp" alt="夜の通信 sticker">
+      </div>
+
+      <div style="font-weight:500; margin-top:12px;">
+        <div>夜の通信ステッカー</div>
+        <div class="priceLine">￥500</div>
+        <div class="muted" style="margin-top:6px;">その他 会場内物販あり</div>
       </div>
     </section>
 
