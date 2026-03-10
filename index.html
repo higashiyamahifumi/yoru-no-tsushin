@@ -52,7 +52,7 @@
       --flyerGapTop: 14px;
 
       /* merch image */
-      --merchW: calc(var(--photoW) * 1.25); /* ✅ sticker bigger */
+      --merchW: calc(var(--photoW) * 1.25);
       --merchGapTop: 10px;
     }
 
@@ -296,7 +296,7 @@
     }
     .bioLink:hover{ opacity: 1; }
 
-    /* ✅ merch block */
+    /* merch block */
     .merchWrap{
       width: min(var(--merchW), 100%);
       margin-top: var(--merchGapTop);
@@ -313,7 +313,7 @@
       letter-spacing: .06em;
     }
     .merchNote{
-      font-size: 11px;   /* ✅ smaller note */
+      font-size: 11px;
       line-height: 1.6;
       opacity: .72;
     }
@@ -395,6 +395,12 @@
         </div>
       </details>
 
+      <!-- ✅ added: Exhibition -->
+      <details class="artist">
+        <summary>井上大輔 / Daisuke Inoue</summary>
+        <div class="content"></div>
+      </details>
+
       <details class="artist">
         <summary>浅野雄大</summary>
         <div class="content">
@@ -425,6 +431,12 @@
 
       <details class="artist">
         <summary>nagomi koyama</summary>
+        <div class="content"></div>
+      </details>
+
+      <!-- ✅ added: Live Performance -->
+      <details class="artist">
+        <summary>日下七海 / Nanami Kusaka</summary>
         <div class="content"></div>
       </details>
 
@@ -521,7 +533,7 @@
       </div>
     </section>
 
-    <!-- ✅ MERCH (物販) -->
+    <!-- MERCH -->
     <section style="border-bottom:none;">
       <h2>MERCH</h2>
 
