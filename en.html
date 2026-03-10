@@ -38,10 +38,12 @@
       --groupLetter: .14em;
       --groupMarginTop: 14px;
 
+      /* background */
       --bgOpacity: .16;
       --bgShiftX: 25vw;
       --bgSize: min(1640px, 184vw);
 
+      /* intro */
       --introSize: 12px;
       --introOpacity: .78;
 
@@ -49,8 +51,9 @@
       --flyerW: calc(var(--photoW_small) * 1.6);
       --flyerGapTop: 14px;
 
-      /* merch */
-      --merchW: calc(var(--photoW) * 1.25); /* ✅ sticker a bit bigger */
+      /* merch image */
+      --merchW: calc(var(--photoW) * 1.25);
+      --merchGapTop: 10px;
     }
 
     body{
@@ -159,21 +162,16 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-
       margin-top:14px;
       padding:12px 16px;
-
       background: var(--accent);
       color: var(--accentText);
-
       border: 1px solid rgba(0,0,0,.35);
       border-radius:999px;
-
       text-decoration:none;
       letter-spacing:.14em;
       font-weight:700;
       font-size:12px;
-
       box-shadow: 0 6px 22px rgba(255, 212, 0, .22);
     }
     .btn:hover{ opacity:.92; }
@@ -297,19 +295,24 @@
     }
     .bioLink:hover{ opacity: 1; }
 
-    /* merch */
-    .merchMedia{
-      margin-top: 12px;
+    /* merch block */
+    .merchWrap{
       width: min(var(--merchW), 100%);
+      margin-top: var(--merchGapTop);
     }
-    .merchMedia img{
+    .merchImg{
       width: 100%;
       height: auto;
       display:block;
       border: 1px solid rgba(255,255,255,.12);
     }
+    .priceLine{
+      margin-top: 10px;
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
     .merchNote{
-      font-size: 11px;     /* ✅ smaller line */
+      font-size: 11px;
       line-height: 1.6;
       opacity: .72;
     }
@@ -391,6 +394,12 @@
         </div>
       </details>
 
+      <!-- ✅ added: Exhibition -->
+      <details class="artist">
+        <summary>Daisuke Inoue</summary>
+        <div class="content"></div>
+      </details>
+
       <details class="artist">
         <summary>Yudai Asano</summary>
         <div class="content">
@@ -421,6 +430,12 @@
 
       <details class="artist">
         <summary>nagomi koyama</summary>
+        <div class="content"></div>
+      </details>
+
+      <!-- ✅ added: Live Performance -->
+      <details class="artist">
+        <summary>Nanami Kusaka</summary>
         <div class="content"></div>
       </details>
 
@@ -517,18 +532,18 @@
       </div>
     </section>
 
-    <!-- ✅ MERCH -->
+    <!-- MERCH -->
     <section style="border-bottom:none;">
       <h2>MERCH</h2>
 
-      <div class="merchMedia" aria-label="Sticker">
-        <img src="./assets/merch/sticker.webp" alt="Yoru no Tsushin sticker">
+      <div class="merchWrap" aria-label="Merch">
+        <img class="merchImg" src="./assets/merch/sticker.webp" alt="Yoru no Tsushin sticker">
       </div>
 
-      <div style="font-weight:500; margin-top:10px;">
-        <div>Yoru no Tsushin sticker</div>
-        <div>¥500</div>
-        <div class="merchNote" style="margin-top:6px;">Other merch available at the venue</div>
+      <div style="font-weight:500; margin-top:12px;">
+        <div>Yoru no Tsushin Sticker</div>
+        <div class="priceLine">¥500</div>
+        <div class="merchNote" style="margin-top:6px;">Other merch available at the venue.</div>
       </div>
     </section>
 
