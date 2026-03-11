@@ -45,11 +45,9 @@
       --introSize: 12px;
       --introOpacity: .78;
 
-      /* flyer */
       --flyerW: calc(var(--photoW_small) * 1.6);
       --flyerGapTop: 14px;
 
-      /* merch image */
       --merchW: calc(var(--photoW) * 1.25);
       --merchGapTop: 10px;
     }
@@ -152,9 +150,6 @@
       opacity:.94;
     }
 
-    .muted{ opacity:.78; }
-    .small{ font-size:13px; }
-
     .btn{
       display:inline-flex;
       align-items:center;
@@ -219,9 +214,9 @@
       letter-spacing:.04em;
       display:inline-flex;
       align-items:center;
-      gap: var(--triGap);
+      gap: 10px;
       outline:none;
-      color: var(--name);
+      color: rgba(255,255,255,.95);
       -webkit-tap-highlight-color: transparent;
     }
     .artist summary::-webkit-details-marker{ display:none; }
@@ -231,8 +226,8 @@
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 5px 0 5px var(--triW);
-      border-color: transparent transparent transparent var(--tri);
+      border-width: 5px 0 5px 7px;
+      border-color: transparent transparent transparent rgba(255,255,255,.72);
       opacity:1;
       transform-origin: 2px 50%;
       transform: rotate(0deg);
@@ -242,7 +237,7 @@
     }
 
     .artist .content{
-      margin: 12px 0 0 var(--indent);
+      margin: 12px 0 0 calc(7px + 10px);
       display:flex;
       flex-direction:column;
       gap:10px;
@@ -268,9 +263,9 @@
     }
 
     .artist .bio{
-      opacity: var(--bioOpacity);
+      opacity: .70;
       font-weight: 500;
-      font-size: var(--bioSize);
+      font-size: 12px;
       letter-spacing: .01em;
       line-height: 1.75;
     }
@@ -278,11 +273,11 @@
     .artist .bio p:last-child{ margin-bottom: 0; }
 
     .group{
-      margin: var(--groupMarginTop) 0 6px;
-      font-size: var(--groupSize);
-      letter-spacing: var(--groupLetter);
+      margin: 14px 0 6px;
+      font-size: 11px;
+      letter-spacing: .14em;
       font-weight: 600;
-      opacity: var(--groupOpacity);
+      opacity: .78;
     }
     .group:first-of-type{ margin-top: 0; }
 
@@ -499,6 +494,11 @@
           <div class="avatarWrap is-small">
             <img class="avatar" src="./assets/artists/tominaga.webp" alt="Sota Tominaga">
           </div>
+          <div class="bio">
+            <p>After graduating from Tama Art University, he works primarily in UI/UX design, while also taking on projects in 3D animation and branding.</p>
+            <p>A product development project he contributed to last year received the Good Design Award.</p>
+            <p>He continues to iterate and create daily at the intersection of technology and design.</p>
+          </div>
         </div>
       </details>
 
@@ -529,7 +529,7 @@
       <h2>VENUE</h2>
       <div style="font-weight:500;">
         <div><strong>Koenji Fourth Floor II</strong></div>
-        <div class="muted small" style="margin-top:6px;">166-0003</div>
+        <div class="small" style="opacity:.78; margin-top:6px;">166-0003</div>
         <div>B1, 5th Nitto Bldg, 4-6-7 Koenji-minami, Suginami-ku, Tokyo</div>
         <div style="margin-top:10px;">
           <a href="https://maps.app.goo.gl/5qVKebVzXAnNLyhq9" target="_blank" rel="noopener">Open in Google Maps</a>
